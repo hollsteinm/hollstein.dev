@@ -1,0 +1,22 @@
+version: 0.2
+
+phases:
+  install:
+    runtime-versions:
+      nodejs: 10
+    commands:
+      - chmod a+x ./scripts/optimize.sh
+      - npm install -g uglify-js
+  pre_build:
+    commands:
+      - mkdir build
+  build:
+    commands:
+      - elm make --optimize --output=build/app.js src/Main.elm
+      - uglifyjs build/app.js --compress 'pure_funcs="F2,F3,F4,F5,F6,F7,F8,F9,A2,A3,A4,A5,A6,A7,A8,A9",pure_getters,keep_fargs=false,unsafe_comps,unsafe' | uglifyjs --mangle --output=build/app.min.js
+artifacts:
+  name: BuildOutput
+  files:
+    - '**/*'
+  discard-paths: no
+  base-directory: 'build'
