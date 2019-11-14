@@ -2,12 +2,16 @@ module Main exposing (..)
 
 import Browser
 import Browser.Navigation as Nav
-import Html as Html exposing (..)
-import Html.Attributes exposing (..)
-import Page exposing (PageMsg)
+import Css exposing (..)
+import Html
+import Html.Styled exposing (..)
+import Html.Styled.Attributes exposing (..)
 import Page.Career as Career
+import Page.Connect as Connect
 import Page.Index as Index
-import Routes as Routes exposing (..)
+import Page.Websites as Websites
+import Routes as Routes exposing (Route, routeMatchUrl, routeParseUrl, routeView)
+import Style as Style exposing (footer, header, main_)
 import Url
 
 
@@ -32,8 +36,10 @@ main =
 
 
 type Page
-    = Index Index.Model
-    | Career Career.Model
+    = Index String
+    | Career String
+    | Websites String
+    | Connect String
 
 
 type alias Model =
@@ -50,7 +56,7 @@ init flags url key =
         model =
             { key = key
             , url = url
-            , page = Index Index.view
+            , page = Index Index.title
             , route = Routes.Index
             }
     in
@@ -92,10 +98,16 @@ loadPage : Route -> Model -> ( Model, Cmd Msg )
 loadPage route model =
     case route of
         Routes.Index ->
-            ( { model | page = Index Index.view }, Cmd.none )
+            ( { model | page = Index Index.title }, Cmd.none )
 
         Routes.Career ->
-            ( { model | page = Career Career.view }, Cmd.none )
+            ( { model | page = Career Career.title }, Cmd.none )
+
+        Routes.Websites ->
+            ( { model | page = Websites Websites.title }, Cmd.none )
+
+        Routes.Connect ->
+            ( { model | page = Connect Connect.title }, Cmd.none )
 
 
 
@@ -114,26 +126,62 @@ subscriptions _ =
 view : Model -> Browser.Document Msg
 view model =
     let
-        { title, content } =
+        ( title, content ) =
             case model.page of
-                Index indexModel ->
-                    indexModel
+                Index indexTitle ->
+                    ( indexTitle, Index.view )
 
-                Career careerModel ->
-                    careerModel
+                Career careerTitle ->
+                    ( careerTitle, Career.view )
+
+                Websites websiteTitle ->
+                    ( websiteTitle, Websites.view )
+
+                Connect connectTitle ->
+                    ( connectTitle, Connect.view )
     in
     { title = title
     , body =
-        [ text "The current URL is: "
-        , b [] [ text (Url.toString model.url) ]
-        , ul []
-            [ viewLink "/"
-            , viewLink "/career"
-            ]
+        [ Html.Styled.toUnstyled
+            (Style.appBody []
+                [ Style.header []
+                    [ Style.appLogo
+                    , div [ css [ Style.flexContainerColumns ] ]
+                        [ h1 []
+                            [ text "Martin Hollstein"
+                            ]
+                        , span []
+                            [ viewIdentity "Role" "Cloud Native Developer"
+                            , viewIdentity "Location" "Wisconsin - U.S.A"
+                            , viewIdentity "Certifications" "AWS Solutions Architect - Professional (9EMDJ7X2JJF4175C)"
+                            ]
+                        ]
+                    , Style.nav []
+                        [ Routes.routeView title
+                        ]
+                    ]
+                , Style.main_ []
+                    [ h2 []
+                        [ text title
+                        ]
+                    , article []
+                        content
+                    ]
+                , Style.footer []
+                    [ text "Copyright 2019, Martin Hollstein"
+                    ]
+                ]
+            )
         ]
     }
 
 
-viewLink : String -> Html msg
-viewLink path =
-    li [] [ a [ href path ] [ text path ] ]
+viewIdentity : String -> String -> Html msg
+viewIdentity label value =
+    p []
+        [ Html.Styled.small []
+            [ text label
+            , text ": "
+            ]
+        , text value
+        ]

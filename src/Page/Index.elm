@@ -1,17 +1,11 @@
-module Page.Index exposing (Model, view)
+module Page.Index exposing (view, title)
 
-import Html exposing (Html)
-import Page exposing (PageMsg)
+import Html
+import Html.Styled exposing (Html, text)
 
+title : String
+title = "Home"
 
-type alias Model =
-    { title : String
-    , content : Html PageMsg
-    }
-
-
-view : { title : String, content : Html PageMsg }
+view : List(Html msg)
 view =
-    { title = "Martin Hollstein"
-    , content = Html.text ""
-    }
+    [text "This is some text about my website"]

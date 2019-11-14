@@ -1,17 +1,12 @@
-module Page.Career exposing (Model, view)
+module Page.Career exposing (view, title)
 
-import Html exposing (Html)
-import Page exposing (PageMsg)
+import Html
+import Html.Styled exposing (Html, text)
 
+title : String
+title = "Career"
 
-type alias Model =
-    { title : String
-    , content : Html PageMsg
-    }
-
-
-view : { title : String, content : Html PageMsg }
+view : List(Html msg)
 view =
-    { title = "Career"
-    , content = Html.text ""
-    }
+  [text "Here are some blurbs about my career"]
+
