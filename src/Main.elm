@@ -1,17 +1,15 @@
-module Main exposing (..)
+module Main exposing (main)
 
 import Browser
 import Browser.Navigation as Nav
-import Css exposing (..)
-import Html
-import Html.Styled exposing (..)
-import Html.Styled.Attributes exposing (..)
+import Html.Styled exposing (Html, article, div, h1, span, text)
+import Html.Styled.Attributes exposing (css)
 import Page.Career as Career
 import Page.Connect as Connect
 import Page.Index as Index
 import Page.Websites as Websites
-import Routes as Routes exposing (Route, routeMatchUrl, routeParseUrl, routeView)
-import Style as Style exposing (footer, header, main_)
+import Routes as Routes exposing (Route, routeParseUrl, routeView)
+import Style as Style exposing (footer, h2, header, main_, p)
 import Url
 
 
@@ -51,7 +49,7 @@ type alias Model =
 
 
 init : () -> Url.Url -> Nav.Key -> ( Model, Cmd Msg )
-init flags url key =
+init _ url key =
     let
         model =
             { key = key
@@ -90,7 +88,7 @@ update msg model =
 
 
 initLoadPage : ( Model, Cmd Msg ) -> ( Model, Cmd Msg )
-initLoadPage ( model, cmd ) =
+initLoadPage ( model, _ ) =
     loadPage (Routes.routeParseUrl model.url) model
 
 
@@ -161,7 +159,7 @@ view model =
                         ]
                     ]
                 , Style.main_ []
-                    [ h2 []
+                    [ Style.h2 []
                         [ text title
                         ]
                     , article []

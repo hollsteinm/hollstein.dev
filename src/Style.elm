@@ -1,9 +1,8 @@
-module Style exposing (..)
+module Style exposing (appBody, appLogo, flexChild, flexContainerColumns, flexContainerRows, footer, header, main_, nav, p, theme, h1, h2, h3, h4, h5)
 
-import Css exposing (..)
-import Html
-import Html.Styled as Styled exposing (..)
-import Html.Styled.Attributes as Attributes exposing (..)
+import Css exposing (Color, Style, alignItems, auto, backgroundColor, batch, borderRadius, color, column, displayFlex, em, flex, flexDirection, flexEnd, flexStart, fontFamilies, fontSize, fontWeight, hex, int, justifyContent, margin, maxHeight, maxWidth, padding, paddingLeft, paddingRight, pct, px, row, stretch)
+import Html.Styled as Styled exposing (Attribute, Html, div, footer, header, img, main_, nav, p, styled)
+import Html.Styled.Attributes exposing (alt, css, src, title)
 
 
 theme : { primary : Color, secondary : Color, highlight : Color, background : Color }
@@ -72,6 +71,7 @@ appBody =
         , padding (Css.px 0)
         , margin (Css.px 0)
         , alignItems stretch
+        , color theme.primary
         ]
 
 
@@ -95,8 +95,6 @@ main_ : List (Attribute msg) -> List (Html msg) -> Html msg
 main_ =
     styled Styled.main_
         [ margin (Css.em 2)
-        , backgroundColor theme.background
-        , color theme.primary
         , paragraphFont
         , flexChild
         , flexContainerColumns
@@ -108,7 +106,7 @@ main_ =
 header : List (Attribute msg) -> List (Html msg) -> Html msg
 header =
     styled Styled.header
-        [ backgroundColor theme.highlight
+        [ backgroundColor theme.background
         , flexChild
         , flexContainerRows
         , alignItems stretch
@@ -119,7 +117,7 @@ header =
 footer : List (Attribute msg) -> List (Html msg) -> Html msg
 footer =
     styled Styled.footer
-        [ backgroundColor theme.highlight
+        [ backgroundColor theme.background
         , flexChild
         ]
 
@@ -127,15 +125,46 @@ footer =
 p : List (Attribute msg) -> List (Html msg) -> Html msg
 p =
     styled Styled.p
-        [ color theme.secondary
-        , margin auto
-        ,maxWidth (Css.px 628)
+        [ margin auto
+        , maxWidth (Css.px 628)
         ]
+
+h1 : List (Attribute msg) -> List (Html msg) -> Html msg
+h1 =
+    styled Styled.h1
+        [ color theme.secondary
+        ]
+
+h2 : List (Attribute msg) -> List (Html msg) -> Html msg
+h2 =
+    styled Styled.h1
+        [ color theme.secondary
+        ]
+
+h3 : List (Attribute msg) -> List (Html msg) -> Html msg
+h3 =
+    styled Styled.h1
+        [ color theme.secondary
+        ]
+
+h4 : List (Attribute msg) -> List (Html msg) -> Html msg
+h4 =
+    styled Styled.h1
+        [ color theme.secondary
+        ]
+
+h5 : List (Attribute msg) -> List (Html msg) -> Html msg
+h5 =
+    styled Styled.h1
+        [ color theme.secondary
+        ]
+
 
 nav : List (Attribute msg) -> List (Html msg) -> Html msg
 nav =
-  styled Styled.nav
+    styled Styled.nav
         [ flexContainerRows
+        , alignItems stretch
         , justifyContent flexEnd
         , flex (int 1)
         , paddingLeft (Css.em 1)
