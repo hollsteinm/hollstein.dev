@@ -1,6 +1,6 @@
 module Style exposing (appBody, appLogo, article, flexChild, flexContainerColumns, flexContainerRows, footer, h1, h2, h3, h4, h5, header, main_, nav, p, section, theme)
 
-import Css exposing (Color, Style, alignItems, auto, backgroundColor, batch, borderRadius, color, column, displayFlex, em, flex, flexBasis, flexDirection, flexEnd, flexStart, fontFamilies, fontSize, fontWeight, height, hex, int, justifyContent, margin, margin2, maxHeight, maxWidth, minHeight, padding, padding2, paddingLeft, paddingRight, pct, px, row, stretch, width)
+import Css exposing (Color, Style, alignItems, auto, backgroundColor, batch, borderRadius, color, column, displayFlex, em, flex, flexBasis, flexDirection, flexEnd, flexStart, fontFamilies, fontSize, fontWeight, height, hex, int, justifyContent, margin, margin2, maxHeight, maxWidth, minHeight, padding, padding2, paddingLeft, paddingRight, pct, px, row, stretch, vh, width)
 import Html.Styled as Styled exposing (Attribute, Html, div, footer, header, img, main_, nav, p, styled)
 import Html.Styled.Attributes exposing (alt, css, src, title)
 
@@ -16,7 +16,12 @@ theme =
 
 fontTheme : Style
 fontTheme =
-    fontFamilies [ "Palatino Linotype", "Georgia", "serif" ]
+    fontFamilies [ "courier", "serif" ]
+
+
+headerFontTheme : Style
+headerFontTheme =
+    fontFamilies [ "verdana", "sans-serif" ]
 
 
 
@@ -72,6 +77,7 @@ appBody =
         , margin (Css.px 0)
         , alignItems stretch
         , color theme.primary
+        , fontTheme
         ]
 
 
@@ -112,6 +118,7 @@ header =
         , flexContainerRows
         , alignItems stretch
         , justifyContent stretch
+        , headerFontTheme
         ]
 
 
@@ -120,6 +127,7 @@ footer =
     styled Styled.footer
         [ backgroundColor theme.background
         , flexChild
+        , headerFontTheme
         ]
 
 
@@ -135,6 +143,7 @@ h1 : List (Attribute msg) -> List (Html msg) -> Html msg
 h1 =
     styled Styled.h1
         [ color theme.secondary
+        , headerFontTheme
         ]
 
 
@@ -142,6 +151,7 @@ h2 : List (Attribute msg) -> List (Html msg) -> Html msg
 h2 =
     styled Styled.h1
         [ color theme.secondary
+        , headerFontTheme
         ]
 
 
@@ -149,6 +159,7 @@ h3 : List (Attribute msg) -> List (Html msg) -> Html msg
 h3 =
     styled Styled.h1
         [ color theme.secondary
+        , headerFontTheme
         ]
 
 
@@ -156,6 +167,7 @@ h4 : List (Attribute msg) -> List (Html msg) -> Html msg
 h4 =
     styled Styled.h1
         [ color theme.secondary
+        , headerFontTheme
         ]
 
 
@@ -163,6 +175,7 @@ h5 : List (Attribute msg) -> List (Html msg) -> Html msg
 h5 =
     styled Styled.h1
         [ color theme.secondary
+        , headerFontTheme
         ]
 
 

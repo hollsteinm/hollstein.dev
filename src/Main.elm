@@ -168,7 +168,9 @@ view model =
                         content
                     ]
                 , Style.footer []
-                    [ text "Copyright 2019, Martin Hollstein"
+                    [ span [ css [ Style.flexContainerRows, maxWidth (px 1366), width (px 1366), margin2 (em 0) auto, alignItems stretch ] ]
+                        [ text "Copyright 2019, Martin Hollstein"
+                        ]
                     ]
                 ]
             )
