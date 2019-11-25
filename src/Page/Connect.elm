@@ -2,7 +2,7 @@ module Page.Connect exposing (title, view)
 
 import Css exposing (alignSelf, flex, stretch, int, maxWidth, px)
 import Html.Styled exposing (Html, a, img, section, text)
-import Html.Styled.Attributes exposing (css, height, href, src, width)
+import Html.Styled.Attributes exposing (css, height, href, src, width, target)
 import Style exposing (h2, h3, flexChild, flexContainerColumns, flexContainerRows, p)
 
 
@@ -34,7 +34,7 @@ connectViewItem : String -> String -> String -> String -> Html msg
 connectViewItem name link body imageHref =
     section [ css [ flexContainerColumns ] ]
         [ h3 [ css [ flexContainerRows, flex (int 1), alignSelf stretch ] ]
-            [ a [ href link, css [ flexChild ] ]
+            [ a [ href link, target "_blank", css [ flexChild ] ]
                 [ text name
                 ]
             , img [ src imageHref, height 32, width 32, css [ flexChild, maxWidth (px 32) ] ]

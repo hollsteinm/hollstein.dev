@@ -1,6 +1,6 @@
-module Style exposing (appBody, appLogo, flexChild, flexContainerColumns, flexContainerRows, footer, header, main_, nav, p, theme, h1, h2, h3, h4, h5)
+module Style exposing (appBody, appLogo, article, flexChild, flexContainerColumns, flexContainerRows, footer, h1, h2, h3, h4, h5, header, main_, nav, p, section, theme)
 
-import Css exposing (Color, Style, alignItems, auto, backgroundColor, batch, borderRadius, color, column, displayFlex, em, flex, flexDirection, flexEnd, flexStart, fontFamilies, fontSize, fontWeight, hex, int, justifyContent, margin, maxHeight, maxWidth, padding, paddingLeft, paddingRight, pct, px, row, stretch)
+import Css exposing (Color, Style, alignItems, auto, backgroundColor, batch, borderRadius, color, column, displayFlex, em, flex, flexBasis, flexDirection, flexEnd, flexStart, fontFamilies, fontSize, fontWeight, height, hex, int, justifyContent, margin, margin2, maxHeight, maxWidth, minHeight, padding, padding2, paddingLeft, paddingRight, pct, px, row, stretch, width)
 import Html.Styled as Styled exposing (Attribute, Html, div, footer, header, img, main_, nav, p, styled)
 import Html.Styled.Attributes exposing (alt, css, src, title)
 
@@ -94,12 +94,13 @@ appLogo =
 main_ : List (Attribute msg) -> List (Html msg) -> Html msg
 main_ =
     styled Styled.main_
-        [ margin (Css.em 2)
+        [ margin2 (em 2) auto
         , paragraphFont
         , flexChild
         , flexContainerColumns
-        , margin (Css.px 0)
         , padding (Css.em 2)
+        , maxWidth (px 1256)
+        , width (pct 100)
         ]
 
 
@@ -125,9 +126,10 @@ footer =
 p : List (Attribute msg) -> List (Html msg) -> Html msg
 p =
     styled Styled.p
-        [ margin auto
-        , maxWidth (Css.px 628)
+        [ margin2 (em 1) auto
+        , maxWidth (Css.px 630)
         ]
+
 
 h1 : List (Attribute msg) -> List (Html msg) -> Html msg
 h1 =
@@ -135,11 +137,13 @@ h1 =
         [ color theme.secondary
         ]
 
+
 h2 : List (Attribute msg) -> List (Html msg) -> Html msg
 h2 =
     styled Styled.h1
         [ color theme.secondary
         ]
+
 
 h3 : List (Attribute msg) -> List (Html msg) -> Html msg
 h3 =
@@ -147,11 +151,13 @@ h3 =
         [ color theme.secondary
         ]
 
+
 h4 : List (Attribute msg) -> List (Html msg) -> Html msg
 h4 =
     styled Styled.h1
         [ color theme.secondary
         ]
+
 
 h5 : List (Attribute msg) -> List (Html msg) -> Html msg
 h5 =
@@ -169,4 +175,27 @@ nav =
         , flex (int 1)
         , paddingLeft (Css.em 1)
         , paddingRight (Css.em 1)
+        ]
+
+
+section : List (Attribute msg) -> List (Html msg) -> Html msg
+section =
+    styled Styled.section
+        [ flexContainerColumns
+        , backgroundColor theme.background
+        , flexChild
+        , margin2 (em 0.5) (em 0.5)
+        , padding2 (em 0) (em 1)
+        , flexBasis (pct 45)
+        , minHeight (em 12)
+        , height (em 12)
+        , maxWidth (pct 45)
+        ]
+
+
+article : List (Attribute msg) -> List (Html msg) -> Html msg
+article =
+    styled Styled.article
+        [ displayFlex
+        , flexDirection column
         ]

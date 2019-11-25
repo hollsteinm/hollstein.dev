@@ -1,9 +1,9 @@
 module Page.Career exposing (title, view)
 
-import Css exposing (alignSelf, flex, int, stretch, flexEnd, justifyContent)
-import Html.Styled exposing (Html, a, section, text, span)
+import Css exposing (alignSelf, flex, flexEnd, int, justifyContent, stretch)
+import Html.Styled exposing (Html, a, section, span, text)
 import Html.Styled.Attributes exposing (css, href)
-import Style exposing (h2, h3, flexChild, flexContainerColumns, flexContainerRows, p)
+import Style exposing (flexChild, flexContainerColumns, flexContainerRows, h2, h3, p)
 
 
 title : String
@@ -15,15 +15,15 @@ view : List (Html msg)
 view =
     [ p []
         [ text "Below is a timeline of places I have worked in the technology industry. Following the where, I will briefly discuss the what. If you are looking for more detail, please visit the link below."
-        , a [ href "https://www.linkedin.com/in/martin-hollstein" ]
-            [ text "LinkedIn Profile"
-            ]
+        ]
+    , a [ href "https://www.linkedin.com/in/martin-hollstein" ]
+        [ text "LinkedIn Profile"
         ]
     , h2 []
         [ text "Certifications"
         ]
     , p []
-        [ text "AWS Solutions Architect - Professional"
+        [ text "AWS Solutions Architect - Professional, License # 9EMDJ7X2JJF4175C"
         ]
     , h2 []
         [ text "Career Employment"

@@ -79,7 +79,7 @@ lia path children =
                 [ color theme.primary
                 ]
             , hover
-                [ color theme.secondary
+                [ color theme.highlight
                 ]
             ]
         ]

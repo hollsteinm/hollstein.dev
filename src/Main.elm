@@ -2,6 +2,7 @@ module Main exposing (main)
 
 import Browser
 import Browser.Navigation as Nav
+import Css exposing (auto, em, margin2, maxWidth, px, width, alignItems, stretch)
 import Html.Styled exposing (Html, article, div, h1, span, text)
 import Html.Styled.Attributes exposing (css)
 import Page.Career as Career
@@ -143,26 +144,27 @@ view model =
         [ Html.Styled.toUnstyled
             (Style.appBody []
                 [ Style.header []
-                    [ Style.appLogo
-                    , div [ css [ Style.flexContainerColumns ] ]
-                        [ h1 []
-                            [ text "Martin Hollstein"
+                    [ span [ css [ Style.flexContainerRows, maxWidth (px 1366), width (px 1366), margin2 (em 0) auto, alignItems stretch ] ]
+                        [ Style.appLogo
+                        , div [ css [ Style.flexContainerColumns ] ]
+                            [ h1 []
+                                [ text "Martin Hollstein"
+                                ]
+                            , span []
+                                [ viewIdentity "Role" "Cloud Native Developer"
+                                , viewIdentity "Location" "Wisconsin - U.S.A"
+                                ]
                             ]
-                        , span []
-                            [ viewIdentity "Role" "Cloud Native Developer"
-                            , viewIdentity "Location" "Wisconsin - U.S.A"
-                            , viewIdentity "Certifications" "AWS Solutions Architect - Professional (9EMDJ7X2JJF4175C)"
+                        , Style.nav []
+                            [ Routes.routeView title
                             ]
-                        ]
-                    , Style.nav []
-                        [ Routes.routeView title
                         ]
                     ]
                 , Style.main_ []
                     [ Style.h2 []
                         [ text title
                         ]
-                    , article []
+                    , Style.article []
                         content
                     ]
                 , Style.footer []
