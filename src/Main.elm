@@ -154,7 +154,7 @@ view model =
                                 [ text "Martin Hollstein"
                                 ]
                             , span []
-                                [ text "Cloud Native Developer in Wisconsin"
+                                [ text "Cloud Native Architect Developer in Wisconsin"
                                 ]
                             ]
                         , Style.nav []

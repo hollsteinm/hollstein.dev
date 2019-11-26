@@ -44,7 +44,7 @@ view =
         , websiteViewItem "Hollstein.Dev"
             "https://www.hollstein.dev"
             "This website. Not much else to say about it. A good way to show off a portfolio of my work."
-            Nothing
+            (Just "assets/face.jpg")
         ]
     , h2
         [ css [ color theme.background ] ]
