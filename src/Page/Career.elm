@@ -22,7 +22,7 @@ view =
     , h2 [ css [ color theme.background ] ]
         [ text "Certifications"
         ]
-    , p [ css [ color theme.background ] ]
+    , p [ css [  margin2 (em 1) (em 0), color theme.background ] ]
         [ text "AWS Solutions Architect - Professional, License # 9EMDJ7X2JJF4175C"
         ]
     , h2 [ css [ color theme.background ] ]

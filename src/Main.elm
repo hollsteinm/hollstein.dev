@@ -154,8 +154,7 @@ view model =
                                 [ text "Martin Hollstein"
                                 ]
                             , span []
-                                [ viewIdentity "Role" "Cloud Native Developer"
-                                , viewIdentity "Location" "Wisconsin - U.S.A"
+                                [ text "Cloud Native Developer in Wisconsin"
                                 ]
                             ]
                         , Style.nav []
@@ -177,13 +176,3 @@ view model =
         ]
     }
 
-
-viewIdentity : String -> String -> Html msg
-viewIdentity label value =
-    p []
-        [ Html.Styled.small []
-            [ text label
-            , text ": "
-            ]
-        , text value
-        ]
