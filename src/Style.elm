@@ -1,6 +1,6 @@
 module Style exposing (appBody, appLogo, article, flexChild, flexContainerColumns, flexContainerRows, footer, h1, h2, h3, h4, h5, sectionGroup, header, main_, nav, p, section, theme, backgroundLeft, backgroundRight, backgroundCenter)
 
-import Css exposing (Color, Style, flexWrap, wrap, center, left, solid, zIndex, borderRight3, borderLeft3, borderTop3, transparent, absolute, alignItems, auto, backgroundColor, batch, borderRadius, calc, color, column, displayFlex, em, flex, flexBasis, flexDirection, flexEnd, flexGrow, flexStart, fontFamilies, fontSize, fontWeight, height, hex, hidden, int, justifyContent, margin, margin2, marginTop, marginLeft, marginRight, maxHeight, maxWidth, minHeight, minus, overflow, padding, padding2, paddingLeft, paddingRight, pct, position, px, row, stretch, top, vh, width)
+import Css exposing (Color, Style, flexWrap, wrap, center, left, solid, zIndex, borderRight3, borderLeft3, borderTop3, transparent, absolute, alignItems, auto, backgroundColor, batch, borderRadius, calc, color, column, displayFlex, em, flex, flexBasis, flexDirection, flexEnd, flexGrow, flexStart, fontFamilies, fontSize, fontWeight, height, hex, hidden, int, justifyContent, margin, margin2, marginLeft, marginRight, maxHeight, maxWidth, minHeight, minus, overflow, padding, padding2, paddingLeft, paddingRight, pct, position, px, row, stretch, top, vh, width)
 import Html.Styled as Styled exposing (Attribute, Html, div, footer, header, img, main_, nav, p, styled)
 import Html.Styled.Attributes exposing (alt, css, src, title)
 
