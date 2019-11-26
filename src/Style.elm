@@ -1,6 +1,6 @@
-module Style exposing (appBody, appLogo, article, flexChild, flexContainerColumns, flexContainerRows, footer, h1, h2, h3, h4, h5, header, main_, nav, p, section, theme)
+module Style exposing (appBody, appLogo, article, flexChild, flexContainerColumns, flexContainerRows, footer, h1, h2, h3, h4, h5, sectionGroup, header, main_, nav, p, section, theme, backgroundLeft, backgroundRight, backgroundCenter)
 
-import Css exposing (Color, Style, alignItems, auto, backgroundColor, batch, borderRadius, color, column, displayFlex, em, flex, flexBasis, flexDirection, flexEnd, flexStart, fontFamilies, fontSize, fontWeight, height, hex, int, justifyContent, margin, margin2, maxHeight, maxWidth, minHeight, padding, padding2, paddingLeft, paddingRight, pct, px, row, stretch, vh, width)
+import Css exposing (Color, Style, flexWrap, wrap, center, left, solid, zIndex, borderRight3, borderLeft3, borderTop3, transparent, absolute, alignItems, auto, backgroundColor, batch, borderRadius, calc, color, column, displayFlex, em, flex, flexBasis, flexDirection, flexEnd, flexGrow, flexStart, fontFamilies, fontSize, fontWeight, height, hex, hidden, int, justifyContent, margin, margin2, marginBottom, marginLeft, marginRight, maxHeight, maxWidth, minHeight, minus, overflow, padding, padding2, paddingLeft, paddingRight, pct, position, px, row, stretch, top, vh, width)
 import Html.Styled as Styled exposing (Attribute, Html, div, footer, header, img, main_, nav, p, styled)
 import Html.Styled.Attributes exposing (alt, css, src, title)
 
@@ -78,6 +78,8 @@ appBody =
         , alignItems stretch
         , color theme.primary
         , fontTheme
+        , overflow hidden
+        , height (vh 100)
         ]
 
 
@@ -105,8 +107,8 @@ main_ =
         , flexChild
         , flexContainerColumns
         , padding (Css.em 2)
-        , maxWidth (px 1256)
         , width (pct 100)
+        , overflow auto
         ]
 
 
@@ -119,6 +121,7 @@ header =
         , alignItems stretch
         , justifyContent stretch
         , headerFontTheme
+        , flexGrow (int 0)
         ]
 
 
@@ -128,6 +131,10 @@ footer =
         [ backgroundColor theme.background
         , flexChild
         , headerFontTheme
+        , position absolute
+        , top (calc (pct 100) minus (em 1))
+        , width (pct 100)
+        , marginBottom (em 0.5)
         ]
 
 
@@ -191,6 +198,14 @@ nav =
         ]
 
 
+sectionGroup : List (Attribute msg) -> List (Html msg) -> Html msg
+sectionGroup =
+    styled Styled.div
+        [ flexContainerRows
+        , flexWrap wrap
+        , justifyContent center
+        ]
+
 section : List (Attribute msg) -> List (Html msg) -> Html msg
 section =
     styled Styled.section
@@ -211,4 +226,60 @@ article =
     styled Styled.article
         [ displayFlex
         , flexDirection column
+        , maxWidth (px 1256)
+        , marginLeft auto
+        , marginRight auto
         ]
+
+
+backgroundCenter : Html msg
+backgroundCenter =
+    div
+        [ css
+            [ position absolute
+            , top (px 0)
+            , left (px 0)
+            , width (pct 100)
+            , height (pct 100)
+            , backgroundColor theme.highlight
+            , zIndex (int -100)
+            , overflow hidden
+            ]
+        ]
+        []
+
+
+backgroundRight : Html msg
+backgroundRight =
+    div
+        [ css
+            [ position absolute
+            , top (px 0)
+            , left (px 0)
+            , width (px 0)
+            , height (px 0)
+            , zIndex (int -99)
+            , borderTop3 (px 1900) solid theme.primary
+            , borderLeft3 (px 1900) solid transparent
+            , overflow hidden
+            ]
+        ]
+        []
+
+
+backgroundLeft : Html msg
+backgroundLeft =
+    div
+        [ css
+            [ position absolute
+            , top (px 0)
+            , left (px 0)
+            , width (px 0)
+            , height (px 0)
+            , zIndex (int -98)
+            , borderTop3 (px 1256) solid theme.secondary
+            , borderRight3 (px 1256) solid transparent
+            , overflow hidden
+            ]
+        ]
+        []

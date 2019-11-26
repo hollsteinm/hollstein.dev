@@ -2,7 +2,7 @@ module Main exposing (main)
 
 import Browser
 import Browser.Navigation as Nav
-import Css exposing (auto, em, margin2, maxWidth, px, width, alignItems, stretch)
+import Css exposing (alignItems, auto, em, margin2, maxWidth, px, stretch, width)
 import Html.Styled exposing (Html, article, div, h1, span, text)
 import Html.Styled.Attributes exposing (css)
 import Page.Career as Career
@@ -10,7 +10,7 @@ import Page.Connect as Connect
 import Page.Index as Index
 import Page.Websites as Websites
 import Routes as Routes exposing (Route, routeParseUrl, routeView)
-import Style as Style exposing (footer, h2, header, main_, p)
+import Style as Style exposing (backgroundCenter, backgroundLeft, backgroundRight, footer, h2, header, main_, p)
 import Url
 
 
@@ -143,7 +143,10 @@ view model =
     , body =
         [ Html.Styled.toUnstyled
             (Style.appBody []
-                [ Style.header []
+                [ backgroundCenter
+                , backgroundLeft
+                , backgroundRight
+                , Style.header []
                     [ span [ css [ Style.flexContainerRows, maxWidth (px 1366), width (px 1366), margin2 (em 0) auto, alignItems stretch ] ]
                         [ Style.appLogo
                         , div [ css [ Style.flexContainerColumns ] ]
@@ -161,10 +164,7 @@ view model =
                         ]
                     ]
                 , Style.main_ []
-                    [ Style.h2 []
-                        [ text title
-                        ]
-                    , Style.article []
+                    [ Style.article []
                         content
                     ]
                 , Style.footer []

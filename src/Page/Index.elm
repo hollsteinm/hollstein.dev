@@ -1,6 +1,8 @@
 module Page.Index exposing (title, view)
 
-import Html.Styled exposing (Html, text)
+import Html.Styled exposing (Html)
+import Html.Styled.Attributes exposing (css)
+import Style exposing (theme)
 
 
 title : String
@@ -10,4 +12,4 @@ title =
 
 view : List (Html msg)
 view =
-    [ text "This is some text about my website" ]
+    []

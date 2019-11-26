@@ -1,9 +1,9 @@
 module Page.Websites exposing (title, view)
 
-import Css exposing (textDecoration, margin2, color, visited, hover, alignSelf, em, flex, flexWrap, int, none, maxWidth, px, stretch, wrap, justifyContent, center)
-import Html.Styled exposing (Html, a, div, img, text)
+import Css exposing (alignSelf, color, color, em, flex, hover, int, margin2, maxWidth, none, px, stretch, textDecoration, visited)
+import Html.Styled exposing (Html, a, img, text)
 import Html.Styled.Attributes exposing (css, height, href, src, target, width)
-import Style exposing (theme, flexChild, flexContainerRows, h2, h3, p, section)
+import Style exposing (flexChild, flexContainerRows, h2, h3, p, section, sectionGroup, theme)
 
 
 title : String
@@ -13,14 +13,14 @@ title =
 
 view : List (Html msg)
 view =
-    [ p [ css [ margin2 (em 1) (em 0) ] ]
+    [ p [ css [ margin2 (em 1) (em 0), color theme.background ] ]
         [ text "This section is about all of the websites I publicly manage or contribute to outside of work. These are all related to hobby or volunteer projects. Think of this as the center of the web of everything I contribute time towards."
         ]
     , h2
-        []
+        [ css [ color theme.background ] ]
         [ text "Projects"
         ]
-    , div [ css [ flexContainerRows, flexWrap wrap, justifyContent center ] ]
+    , sectionGroup []
         [ websiteViewItem "Cream City Code / FallX"
             "https://www.fallexperiment.com"
             "This was a joint effort created by Cream City Code volunteers for the Fall Experiment / Cream City Code conference in Milwaukke, WI. I contributed time to exploratory features and frontend work."
@@ -47,10 +47,10 @@ view =
             Nothing
         ]
     , h2
-        []
+        [ css [ color theme.background ] ]
         [ text "Blogs & Articles"
         ]
-    , div [ css [ flexContainerRows, flexWrap wrap, justifyContent center ] ]
+    , sectionGroup []
         [ websiteViewItem "Centare"
             "https://www.centare.com/blog"
             "I have contributed blogs for my current employer. These blogs focus heavily on technology and the professional use of it."
@@ -84,17 +84,20 @@ websiteViewItem name link body maybeIcon =
     in
     section []
         [ h3 [ css [ flexContainerRows, flex (int 1), alignSelf stretch ] ]
-            [ a [ href link, target "_blank", css
-            [ flexChild
-            , textDecoration none
-            , color theme.secondary
-            , visited
-                [ color theme.secondary
-                ]
-            , hover
-                [ color theme.highlight
-                ]
-            ]
+            [ a
+                [ href link
+                , target "_blank"
+                , css
+                    [ flexChild
+                    , textDecoration none
+                    , color theme.secondary
+                    , visited
+                        [ color theme.secondary
+                        ]
+                    , hover
+                        [ color theme.highlight
+                        ]
+                    ]
                 ]
                 [ text name
                 ]
