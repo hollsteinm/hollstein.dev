@@ -10,7 +10,7 @@ import Page.Connect as Connect
 import Page.Index as Index
 import Page.Websites as Websites
 import Routes as Routes exposing (Route, routeParseUrl, routeView)
-import Style as Style exposing (backgroundCenter, backgroundLeft, backgroundRight, footer, h2, header, main_, p)
+import Style as Style exposing (backgroundCenter, backgroundLeft, backgroundRight, footer, header, main_, p)
 import Url
 
 

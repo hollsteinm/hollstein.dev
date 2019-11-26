@@ -1,6 +1,6 @@
 module Page.Connect exposing (title, view)
 
-import Css exposing (alignSelf, flex, int, maxWidth, px, stretch, margin2, em, color)
+import Css exposing (alignSelf, color, em, flex, int, margin2, maxWidth, px, stretch, textDecoration, visited, hover, none)
 import Html.Styled exposing (Html, a, img, text)
 import Html.Styled.Attributes exposing (css, height, href, src, target, width)
 import Style exposing (flexChild, flexContainerColumns, flexContainerRows, h2, h3, p, section, sectionGroup, theme)
@@ -16,7 +16,7 @@ view =
     [ p [ css [ margin2 (em 1) (em 0), color theme.background ] ]
         [ text "If you want to get in touch professionally, here are the channels to reach me by. I will be most responsive on LinkedIn - as it has a chat feature. Github is here for those interested in seeing some of my contributions and repositories of code. These commits go as far back as my freshman year in college. If you would like to see the output of the content I contribute to, I would refer you to the 'Websites' section of this website."
         ]
-    , h2 [css [ color theme.background ] ]
+    , h2 [ css [ color theme.background ] ]
         [ text "Professional Websites"
         ]
     , sectionGroup []
@@ -36,7 +36,21 @@ connectViewItem : String -> String -> String -> String -> Html msg
 connectViewItem name link body imageHref =
     section [ css [ flexContainerColumns ] ]
         [ h3 [ css [ flexContainerRows, flex (int 1), alignSelf stretch ] ]
-            [ a [ href link, target "_blank", css [ flexChild ] ]
+            [ a
+                [ href link
+                , target "_blank"
+                , css
+                    [ flexChild
+                    , textDecoration none
+                    , color theme.secondary
+                    , visited
+                        [ color theme.secondary
+                        ]
+                    , hover
+                        [ color theme.highlight
+                        ]
+                    ]
+                ]
                 [ text name
                 ]
             , img [ src imageHref, height 32, width 32, css [ flexChild, maxWidth (px 32) ] ]

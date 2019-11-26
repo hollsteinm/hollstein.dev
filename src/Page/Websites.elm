@@ -1,6 +1,6 @@
 module Page.Websites exposing (title, view)
 
-import Css exposing (alignSelf, color, color, em, flex, hover, int, margin2, maxWidth, none, px, stretch, textDecoration, visited)
+import Css exposing (alignSelf, color, em, flex, hover, int, margin2, maxWidth, none, px, stretch, textDecoration, visited)
 import Html.Styled exposing (Html, a, img, text)
 import Html.Styled.Attributes exposing (css, height, href, src, target, width)
 import Style exposing (flexChild, flexContainerRows, h2, h3, p, section, sectionGroup, theme)

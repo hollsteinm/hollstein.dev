@@ -1,6 +1,6 @@
 module Style exposing (appBody, appLogo, article, flexChild, flexContainerColumns, flexContainerRows, footer, h1, h2, h3, h4, h5, sectionGroup, header, main_, nav, p, section, theme, backgroundLeft, backgroundRight, backgroundCenter)
 
-import Css exposing (Color, Style, flexWrap, wrap, center, left, solid, zIndex, borderRight3, borderLeft3, borderTop3, transparent, absolute, alignItems, auto, backgroundColor, batch, borderRadius, calc, color, column, displayFlex, em, flex, flexBasis, flexDirection, flexEnd, flexGrow, flexStart, fontFamilies, fontSize, fontWeight, height, hex, hidden, int, justifyContent, margin, margin2, marginBottom, marginLeft, marginRight, maxHeight, maxWidth, minHeight, minus, overflow, padding, padding2, paddingLeft, paddingRight, pct, position, px, row, stretch, top, vh, width)
+import Css exposing (Color, Style, flexWrap, wrap, center, left, solid, zIndex, borderRight3, borderLeft3, borderTop3, transparent, absolute, alignItems, auto, backgroundColor, batch, borderRadius, calc, color, column, displayFlex, em, flex, flexBasis, flexDirection, flexEnd, flexGrow, flexStart, fontFamilies, fontSize, fontWeight, height, hex, hidden, int, justifyContent, margin, margin2, marginTop, marginLeft, marginRight, maxHeight, maxWidth, minHeight, minus, overflow, padding, padding2, paddingLeft, paddingRight, pct, position, px, row, stretch, top, vh, width)
 import Html.Styled as Styled exposing (Attribute, Html, div, footer, header, img, main_, nav, p, styled)
 import Html.Styled.Attributes exposing (alt, css, src, title)
 
@@ -132,9 +132,9 @@ footer =
         , flexChild
         , headerFontTheme
         , position absolute
-        , top (calc (pct 100) minus (em 1))
+        , top (calc (pct 100) minus (em 1.25))
+        , height (em 1.25)
         , width (pct 100)
-        , marginBottom (em 0.5)
         ]
 
 
@@ -229,6 +229,7 @@ article =
         , maxWidth (px 1256)
         , marginLeft auto
         , marginRight auto
+        , width (pct 100)
         ]
 
 
@@ -259,8 +260,8 @@ backgroundRight =
             , width (px 0)
             , height (px 0)
             , zIndex (int -99)
-            , borderTop3 (px 1900) solid theme.primary
-            , borderLeft3 (px 1900) solid transparent
+            , borderTop3 (px 1920) solid theme.secondary
+            , borderLeft3 (px 1920) solid transparent
             , overflow hidden
             ]
         ]
@@ -277,7 +278,7 @@ backgroundLeft =
             , width (px 0)
             , height (px 0)
             , zIndex (int -98)
-            , borderTop3 (px 1256) solid theme.secondary
+            , borderTop3 (px 1256) solid theme.primary
             , borderRight3 (px 1256) solid transparent
             , overflow hidden
             ]

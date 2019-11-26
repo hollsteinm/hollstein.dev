@@ -1,6 +1,6 @@
 module Page.Career exposing (title, view)
 
-import Css exposing (alignSelf, block, color, display, em, flex, flexEnd, important, inherit, int, justifyContent, margin2, maxWidth, stretch)
+import Css exposing (alignSelf, block, color, display, em, flex, flexEnd, int, justifyContent, margin2, stretch)
 import Html.Styled exposing (Html, a, span, text)
 import Html.Styled.Attributes exposing (css, href)
 import Style exposing (flexChild, flexContainerColumns, flexContainerRows, h2, h3, p, section, sectionGroup, theme)
@@ -50,7 +50,7 @@ view =
 
 timelineItemView : String -> String -> String -> Html msg
 timelineItemView place description dateString =
-    section [ css [ flexContainerColumns, important (maxWidth inherit) ] ]
+    section [ css [ flexContainerColumns ] ]
         [ h3 [ css [ flexContainerRows, flex (int 1), alignSelf stretch ] ]
             [ span [ css [ flexChild ] ]
                 [ text place
