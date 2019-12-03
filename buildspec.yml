@@ -9,7 +9,7 @@ phases:
     runtime-versions:
       nodejs: 10
     commands:
-      - npm install -g uglify-js imagemin-cli html-minifier
+      - npm install -g uglify-js imagemin-cli html-minifier --unsafe-perm=true --allow-root
       - mkdir bin
       - cd bin
       - curl -L -o elm.gz https://github.com/elm/compiler/releases/download/${ELM_VERSION}/binary-for-linux-64-bit.gz
