@@ -15,7 +15,7 @@ phases:
       - curl -L -o elm.gz https://github.com/elm/compiler/releases/download/${ELM_VERSION}/binary-for-linux-64-bit.gz
       - gunzip elm.gz
       - chmod +x elm
-      - sudo mv elm /usr/local/bin/
+      - mv elm /usr/local/bin/
     finally:
       - cd ${CODEBUILD_SRC_DIR}
   pre_build:
