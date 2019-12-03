@@ -2,15 +2,15 @@ module Main exposing (main)
 
 import Browser
 import Browser.Navigation as Nav
-import Css exposing (alignItems, auto, em, margin2, maxWidth, px, stretch, width)
-import Html.Styled exposing (Html, article, div, h1, span, text)
-import Html.Styled.Attributes exposing (css)
-import Page.Career as Career
-import Page.Connect as Connect
-import Page.Index as Index
-import Page.Websites as Websites
-import Routes as Routes exposing (Route, routeParseUrl, routeView)
-import Style as Style exposing (backgroundCenter, backgroundLeft, backgroundRight, footer, header, main_, p)
+import Css exposing (alignItems, auto, color, opacity, em, hidden, hover, int, listStyleType, margin2, maxWidth, none, paddingLeft, paddingRight, paddingTop, pct, px, stretch, textDecoration, textTransform, uppercase, visibility, visible, visited, width)
+import Html.Styled exposing (Html, a, article, b, div, h1, li, span, text, ul)
+import Html.Styled.Attributes exposing (css, href)
+import Page.Career as Career exposing (title)
+import Page.Connect as Connect exposing (title)
+import Page.Index as Index exposing (title)
+import Page.Websites as Websites exposing (title)
+import Routes as Routes exposing (Route, routeMatchUrl, routeParseUrl)
+import Style as Style exposing (backgroundCenter, backgroundLeft, backgroundRight, flexChild, flexContainerColumns, footer, header, main_, theme, nav)
 import Url
 
 
@@ -125,19 +125,19 @@ subscriptions _ =
 view : Model -> Browser.Document Msg
 view model =
     let
-        ( title, content ) =
+        ( title, content, navDisplay ) =
             case model.page of
                 Index indexTitle ->
-                    ( indexTitle, Index.view )
+                    ( indexTitle, Index.view, [ visibility hidden, opacity (int 0) ] )
 
                 Career careerTitle ->
-                    ( careerTitle, Career.view )
+                    ( careerTitle, Career.view, [ visibility visible, opacity (int 1) ] )
 
                 Websites websiteTitle ->
-                    ( websiteTitle, Websites.view )
+                    ( websiteTitle, Websites.view, [ visibility visible, opacity (int 1) ] )
 
                 Connect connectTitle ->
-                    ( connectTitle, Connect.view )
+                    ( connectTitle, Connect.view, [ visibility visible, opacity (int 1) ] )
     in
     { title = title
     , body =
@@ -157,8 +157,8 @@ view model =
                                 [ text "Cloud Native Architect Developer in Wisconsin"
                                 ]
                             ]
-                        , Style.nav []
-                            [ Routes.routeView title
+                        , Style.nav [ css navDisplay ]
+                            [ routeView title
                             ]
                         ]
                     ]
@@ -176,3 +176,61 @@ view model =
         ]
     }
 
+
+routeView : String -> Html msg
+routeView activeTitle =
+    ul [ css [ flexContainerColumns, paddingLeft (em 0), paddingTop (em 0.25), paddingRight (em 0.25), listStyleType none ] ]
+        [ viewLink (routeMatchUrl Routes.Index) Index.title activeTitle
+        , viewLink (routeMatchUrl Routes.Career) Career.title activeTitle
+        , viewLink (routeMatchUrl Routes.Websites) Websites.title activeTitle
+        , viewLink (routeMatchUrl Routes.Connect) Connect.title activeTitle
+        ]
+
+
+lia : String -> List (Html msg) -> Html msg
+lia path children =
+    a
+        [ href path
+        , css
+            [ textDecoration none
+            , textTransform uppercase
+            , width (pct 100)
+            , margin2 auto (em 0.25)
+            , color theme.primary
+            , visited
+                [ color theme.primary
+                ]
+            , hover
+                [ color theme.highlight
+                ]
+            ]
+        ]
+        children
+
+
+viewLink : String -> String -> String -> Html msg
+viewLink path displayName active =
+    let
+        innerStyle =
+            if active == displayName then
+                lia path
+                    [ b []
+                        [ text displayName
+                        ]
+                    ]
+
+            else
+                lia path
+                    [ text displayName
+                    ]
+    in
+    li
+        [ css
+            [ flexChild
+            , paddingTop (em 0.5)
+            , margin2 auto (em 0.25)
+            , width (pct 100)
+            ]
+        ]
+        [ innerStyle
+        ]

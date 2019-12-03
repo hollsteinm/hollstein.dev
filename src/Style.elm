@@ -1,6 +1,7 @@
-module Style exposing (appBody, appLogo, article, flexChild, flexContainerColumns, flexContainerRows, footer, h1, h2, h3, h4, h5, sectionGroup, header, main_, nav, p, section, theme, backgroundLeft, backgroundRight, backgroundCenter)
+module Style exposing (appBody, appLogo, article, backgroundCenter, backgroundLeft, backgroundRight, flexChild, flexContainerColumns, flexContainerRows, footer, h1, h2, h3, h4, h5, header, main_, nav, p, section, sectionGroup, theme)
 
-import Css exposing (Color, Style, flexWrap, wrap, center, left, solid, zIndex, borderRight3, borderLeft3, borderTop3, transparent, absolute, alignItems, auto, backgroundColor, batch, borderRadius, calc, color, column, displayFlex, em, flex, flexBasis, flexDirection, flexEnd, flexGrow, flexStart, fontFamilies, fontSize, fontWeight, height, hex, hidden, int, justifyContent, margin, margin2, marginLeft, marginRight, maxHeight, maxWidth, minHeight, minus, overflow, padding, padding2, paddingLeft, paddingRight, pct, position, px, row, stretch, top, vh, width)
+import Css exposing (Color, Style, absolute, alignItems, auto, backgroundColor, batch, borderLeft3, borderRadius, borderRight3, borderTop3, calc, center, color, column, displayFlex, em, flex, flexBasis, flexDirection, flexEnd, flexGrow, flexStart, flexWrap, fontFamilies, fontSize, fontWeight, height, hex, hidden, int, justifyContent, left, margin, margin2, marginLeft, marginRight, maxHeight, maxWidth, minHeight, minus, overflow, padding, padding2, paddingLeft, paddingRight, pct, position, px, row, solid, stretch, top, transparent, vh, width, wrap, zIndex)
+import Css.Transitions as Transitions exposing (linear, transition)
 import Html.Styled as Styled exposing (Attribute, Html, div, footer, header, img, main_, nav, p, styled)
 import Html.Styled.Attributes exposing (alt, css, src, title)
 
@@ -151,6 +152,7 @@ h1 =
     styled Styled.h1
         [ color theme.secondary
         , headerFontTheme
+        , fontSize (em 5)
         ]
 
 
@@ -195,6 +197,10 @@ nav =
         , flex (int 1)
         , paddingLeft (Css.em 1)
         , paddingRight (Css.em 1)
+        , transition
+            [ Transitions.visibility3 0.3 0.3 linear
+            , Transitions.opacity3 0.3 0.3 linear
+            ]
         ]
 
 
@@ -205,6 +211,7 @@ sectionGroup =
         , flexWrap wrap
         , justifyContent center
         ]
+
 
 section : List (Attribute msg) -> List (Html msg) -> Html msg
 section =
