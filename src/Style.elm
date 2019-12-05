@@ -1,9 +1,11 @@
-module Style exposing (appBody, appLogo, article, backgroundCenter, backgroundLeft, backgroundRight, flexChild, flexContainerColumns, flexContainerRows, footer, h1, h2, h3, h4, h5, header, main_, nav, p, section, sectionGroup, theme)
+module Style exposing (appBody, appLogo, article, backgroundCenter, backgroundLeft, backgroundRight, flexChild, flexContainerColumns, flexContainerRows, footer, h1, h2, h3, h4, h5, header, main_, nav, onClickPreventDefault, p, section, sectionGroup, theme)
 
-import Css exposing (Color, Style, absolute, alignItems, auto, backgroundColor, batch, borderLeft3, borderRadius, borderRight3, borderTop3, calc, center, color, column, displayFlex, em, flex, flexBasis, flexDirection, flexEnd, flexGrow, flexStart, flexWrap, fontFamilies, fontSize, fontWeight, height, hex, hidden, int, justifyContent, left, margin, margin2, marginLeft, marginRight, maxHeight, maxWidth, minHeight, minus, overflow, padding, padding2, paddingLeft, paddingRight, pct, position, px, row, solid, stretch, top, transparent, vh, width, wrap, zIndex)
-import Css.Transitions as Transitions exposing (linear, transition)
+import Css exposing (Color, Style, absolute, alignItems, auto, backgroundColor, batch, borderLeft3, borderRadius, borderRight3, borderTop3, calc, center, color, column, displayFlex, em, flex, flexBasis, flexDirection, flexEnd, flexGrow, flexStart, flexWrap, fontFamilies, fontSize, fontWeight, height, hex, hidden, int, justifyContent, left, margin, margin2, marginLeft, marginRight, maxHeight, maxWidth, minHeight, minus, opacity, overflow, padding, padding2, paddingLeft, paddingRight, pct, position, px, row, solid, stretch, top, transparent, vh, width, wrap, zIndex)
+import Css.Transitions as Transitions exposing (linear, transition, easeInOut)
 import Html.Styled as Styled exposing (Attribute, Html, div, footer, header, img, main_, nav, p, styled)
 import Html.Styled.Attributes exposing (alt, css, src, title)
+import Html.Styled.Events exposing (custom)
+import Json.Decode exposing (succeed)
 
 
 theme : { primary : Color, secondary : Color, highlight : Color, background : Color }
@@ -110,6 +112,10 @@ main_ =
         , padding (Css.em 2)
         , width (pct 100)
         , overflow auto
+        , transition
+            [ Transitions.opacity3 333 333 easeInOut
+            , Transitions.visibility3 333 333 easeInOut
+            ]
         ]
 
 
@@ -198,8 +204,8 @@ nav =
         , paddingLeft (Css.em 1)
         , paddingRight (Css.em 1)
         , transition
-            [ Transitions.visibility3 0.3 0.3 linear
-            , Transitions.opacity3 0.3 0.3 linear
+            [ Transitions.visibility3 333 333 linear
+            , Transitions.opacity3 333 333 linear
             ]
         ]
 
@@ -291,3 +297,11 @@ backgroundLeft =
             ]
         ]
         []
+
+
+{-| onClickPreventDefault is not provided in a compatible manner from Html.Events.Extras,
+so we must define our own that is Html.Styled.Attribute compatible.
+-}
+onClickPreventDefault : msg -> Attribute msg
+onClickPreventDefault msg =
+    custom "click" (succeed { message = msg, stopPropagation = False, preventDefault = True })

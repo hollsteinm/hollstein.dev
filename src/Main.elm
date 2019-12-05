@@ -1,16 +1,18 @@
 module Main exposing (main)
 
-import Browser
+import Browser exposing (application)
 import Browser.Navigation as Nav
-import Css exposing (alignItems, auto, color, opacity, em, hidden, hover, int, listStyleType, margin2, maxWidth, none, paddingLeft, paddingRight, paddingTop, pct, px, stretch, textDecoration, textTransform, uppercase, visibility, visible, visited, width)
+import Css exposing (alignItems, auto, color, em, hidden, hover, int, listStyleType, margin2, maxWidth, minWidth, none, opacity, paddingLeft, paddingRight, paddingTop, pct, px, stretch, textDecoration, textTransform, uppercase, visibility, visible, visited, width)
 import Html.Styled exposing (Html, a, article, b, div, h1, li, span, text, ul)
 import Html.Styled.Attributes exposing (css, href)
 import Page.Career as Career exposing (title)
 import Page.Connect as Connect exposing (title)
 import Page.Index as Index exposing (title)
 import Page.Websites as Websites exposing (title)
+import Process
 import Routes as Routes exposing (Route, routeMatchUrl, routeParseUrl)
-import Style as Style exposing (backgroundCenter, backgroundLeft, backgroundRight, flexChild, flexContainerColumns, footer, header, main_, theme, nav)
+import Style as Style exposing (backgroundCenter, backgroundLeft, backgroundRight, flexChild, flexContainerColumns, footer, h2, header, main_, nav, onClickPreventDefault, theme)
+import Task
 import Url
 
 
@@ -20,7 +22,7 @@ import Url
 
 main : Program () Model Msg
 main =
-    Browser.application
+    application
         { init = init
         , view = view
         , update = update
@@ -46,6 +48,7 @@ type alias Model =
     , url : Url.Url
     , page : Page
     , route : Route
+    , mainOpacity : Int
     }
 
 
@@ -57,10 +60,18 @@ init _ url key =
             , url = url
             , page = Index Index.title
             , route = Routes.Index
+            , mainOpacity = 0
             }
     in
     ( model, Cmd.none )
         |> initLoadPage
+
+
+delay : Float -> msg -> Cmd msg
+delay time msg =
+    Process.sleep time
+        |> Task.andThen (always <| Task.succeed msg)
+        |> Task.perform identity
 
 
 
@@ -69,12 +80,20 @@ init _ url key =
 
 type Msg
     = LinkClicked Browser.UrlRequest
+    | NavClicked String
     | UrlChanged Url.Url
+    | MainOpacitySet Int
 
 
 update : Msg -> Model -> ( Model, Cmd Msg )
 update msg model =
     case msg of
+        MainOpacitySet value ->
+            ( { model | mainOpacity = value }, Cmd.none )
+
+        NavClicked path ->
+            ( model, Nav.pushUrl model.key path )
+
         LinkClicked urlRequest ->
             case urlRequest of
                 Browser.Internal url ->
@@ -85,7 +104,7 @@ update msg model =
 
         UrlChanged url ->
             loadPage (Routes.routeParseUrl url)
-                { model | url = url }
+                { model | url = url, mainOpacity = 0 }
 
 
 initLoadPage : ( Model, Cmd Msg ) -> ( Model, Cmd Msg )
@@ -95,18 +114,22 @@ initLoadPage ( model, _ ) =
 
 loadPage : Route -> Model -> ( Model, Cmd Msg )
 loadPage route model =
+    let
+        cmd =
+            delay 333 <| MainOpacitySet 1
+    in
     case route of
         Routes.Index ->
-            ( { model | page = Index Index.title }, Cmd.none )
+            ( { model | page = Index Index.title }, cmd )
 
         Routes.Career ->
-            ( { model | page = Career Career.title }, Cmd.none )
+            ( { model | page = Career Career.title }, cmd )
 
         Routes.Websites ->
-            ( { model | page = Websites Websites.title }, Cmd.none )
+            ( { model | page = Websites Websites.title }, cmd )
 
         Routes.Connect ->
-            ( { model | page = Connect Connect.title }, Cmd.none )
+            ( { model | page = Connect Connect.title }, cmd )
 
 
 
@@ -125,10 +148,25 @@ subscriptions _ =
 view : Model -> Browser.Document Msg
 view model =
     let
+        mainVisibility =
+            if model.mainOpacity == 0 then
+                Css.important (visibility hidden)
+            else
+                Css.important (visibility visible)
+        mainOpacity =
+            Css.important (opacity (int model.mainOpacity))
+
         ( title, content, navDisplay ) =
             case model.page of
                 Index indexTitle ->
-                    ( indexTitle, Index.view, [ visibility hidden, opacity (int 0) ] )
+                    ( indexTitle
+                    , Index.view
+                        [ bigLink (routeMatchUrl Routes.Career) Career.title
+                        , bigLink (routeMatchUrl Routes.Websites) Websites.title
+                        , bigLink (routeMatchUrl Routes.Connect) Connect.title
+                        ]
+                    , [ visibility hidden, opacity (int 0) ]
+                    )
 
                 Career careerTitle ->
                     ( careerTitle, Career.view, [ visibility visible, opacity (int 1) ] )
@@ -162,7 +200,7 @@ view model =
                             ]
                         ]
                     ]
-                , Style.main_ []
+                , Style.main_ [ css [ mainVisibility, mainOpacity ] ]
                     [ Style.article []
                         content
                     ]
@@ -177,7 +215,7 @@ view model =
     }
 
 
-routeView : String -> Html msg
+routeView : String -> Html Msg
 routeView activeTitle =
     ul [ css [ flexContainerColumns, paddingLeft (em 0), paddingTop (em 0.25), paddingRight (em 0.25), listStyleType none ] ]
         [ viewLink (routeMatchUrl Routes.Index) Index.title activeTitle
@@ -187,42 +225,39 @@ routeView activeTitle =
         ]
 
 
-lia : String -> List (Html msg) -> Html msg
-lia path children =
-    a
-        [ href path
-        , css
-            [ textDecoration none
-            , textTransform uppercase
-            , width (pct 100)
-            , margin2 auto (em 0.25)
-            , color theme.primary
-            , visited
-                [ color theme.primary
-                ]
-            , hover
-                [ color theme.highlight
+bigLink : String -> String -> Html Msg
+bigLink path displayName =
+    h2 []
+        [ a
+            [ href path
+            , onClickPreventDefault (NavClicked path)
+            , css
+                [ textDecoration none
+                , textTransform uppercase
+                , margin2 auto (em 0.25)
+                , color theme.primary
+                , visited
+                    [ color theme.primary
+                    ]
+                , hover
+                    [ color theme.highlight
+                    ]
                 ]
             ]
+            [ text displayName
+            ]
         ]
-        children
 
 
-viewLink : String -> String -> String -> Html msg
+viewLink : String -> String -> String -> Html Msg
 viewLink path displayName active =
     let
-        innerStyle =
+        selectedVisibility =
             if active == displayName then
-                lia path
-                    [ b []
-                        [ text displayName
-                        ]
-                    ]
+                visibility visible
 
             else
-                lia path
-                    [ text displayName
-                    ]
+                visibility hidden
     in
     li
         [ css
@@ -232,5 +267,26 @@ viewLink path displayName active =
             , width (pct 100)
             ]
         ]
-        [ innerStyle
+        [ span [ css [ minWidth (em 1), selectedVisibility, margin2 auto (em 0) ] ]
+            [ text ">"
+            ]
+        , a
+            [ href path
+            , onClickPreventDefault (NavClicked path)
+            , css
+                [ textDecoration none
+                , textTransform uppercase
+                , width (pct 100)
+                , margin2 auto (em 0.25)
+                , color theme.primary
+                , visited
+                    [ color theme.primary
+                    ]
+                , hover
+                    [ color theme.highlight
+                    ]
+                ]
+            ]
+            [ text displayName
+            ]
         ]
