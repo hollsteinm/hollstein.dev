@@ -1,7 +1,7 @@
 module Style exposing (appBody, appLogo, article, backgroundCenter, backgroundLeft, backgroundRight, flexChild, flexContainerColumns, flexContainerRows, footer, h1, h2, h3, h4, h5, header, main_, nav, onClickPreventDefault, p, section, sectionGroup, theme)
 
 import Css exposing (Color, Style, absolute, alignItems, auto, backgroundColor, batch, borderLeft3, borderRadius, borderRight3, borderTop3, calc, center, color, column, displayFlex, em, flex, flexBasis, flexDirection, flexEnd, flexGrow, flexStart, flexWrap, fontFamilies, fontSize, fontWeight, height, hex, hidden, int, justifyContent, left, margin, margin2, marginLeft, marginRight, maxHeight, maxWidth, minHeight, minus, opacity, overflow, padding, padding2, paddingLeft, paddingRight, pct, position, px, row, solid, stretch, top, transparent, vh, width, wrap, zIndex)
-import Css.Transitions as Transitions exposing (linear, transition, easeInOut)
+import Css.Transitions as Transitions exposing (linear, transition, easeIn)
 import Html.Styled as Styled exposing (Attribute, Html, div, footer, header, img, main_, nav, p, styled)
 import Html.Styled.Attributes exposing (alt, css, src, title)
 import Html.Styled.Events exposing (custom)
@@ -113,8 +113,8 @@ main_ =
         , width (pct 100)
         , overflow auto
         , transition
-            [ Transitions.opacity3 333 333 easeInOut
-            , Transitions.visibility3 333 333 easeInOut
+            [ Transitions.opacity3 333 0 easeIn
+            , Transitions.visibility3 333 0 easeIn
             ]
         ]
 
@@ -204,8 +204,8 @@ nav =
         , paddingLeft (Css.em 1)
         , paddingRight (Css.em 1)
         , transition
-            [ Transitions.visibility3 333 333 linear
-            , Transitions.opacity3 333 333 linear
+            [ Transitions.visibility3 333 0 linear
+            , Transitions.opacity3 333 0 linear
             ]
         ]
 

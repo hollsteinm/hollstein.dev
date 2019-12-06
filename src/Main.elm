@@ -83,28 +83,32 @@ type Msg
     | NavClicked String
     | UrlChanged Url.Url
     | MainOpacitySet Int
+    | DelayedLocalLoad Nav.Key String
 
 
 update : Msg -> Model -> ( Model, Cmd Msg )
 update msg model =
     case msg of
+        DelayedLocalLoad key path ->
+            ( model, Nav.pushUrl key path )
+
         MainOpacitySet value ->
             ( { model | mainOpacity = value }, Cmd.none )
 
         NavClicked path ->
-            ( model, Nav.pushUrl model.key path )
+            ( { model | mainOpacity = 0 }, delay 333 <| DelayedLocalLoad model.key path )
 
         LinkClicked urlRequest ->
             case urlRequest of
                 Browser.Internal url ->
-                    ( model, Nav.pushUrl model.key (Url.toString url) )
+                    ( { model | mainOpacity = 0 }, delay 333 <| DelayedLocalLoad model.key (Url.toString url) )
 
                 Browser.External href ->
                     ( model, Nav.load href )
 
         UrlChanged url ->
             loadPage (Routes.routeParseUrl url)
-                { model | url = url, mainOpacity = 0 }
+                { model | url = url }
 
 
 initLoadPage : ( Model, Cmd Msg ) -> ( Model, Cmd Msg )
@@ -151,8 +155,10 @@ view model =
         mainVisibility =
             if model.mainOpacity == 0 then
                 Css.important (visibility hidden)
+
             else
                 Css.important (visibility visible)
+
         mainOpacity =
             Css.important (opacity (int model.mainOpacity))
 
