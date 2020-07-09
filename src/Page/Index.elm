@@ -26,7 +26,7 @@ view links =
                 , flexChild
                 ]
             ]
-            [ text "This website is all about the technological and professional portfolio for Martin Hollstein. I appreciate your time for visiting and getting to know me at a professional level."
+            [ text "This website is all about the technological and professional portfolio for Martin Hollstein. I appreciate your time for visiting."
             ]
         , div
             [ css

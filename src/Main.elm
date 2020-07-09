@@ -3,7 +3,7 @@ module Main exposing (main)
 import Browser exposing (application)
 import Browser.Navigation as Nav
 import Css exposing (alignItems, auto, color, em, hidden, hover, int, listStyleType, margin2, maxWidth, minWidth, none, opacity, paddingLeft, paddingRight, paddingTop, pct, px, stretch, textDecoration, textTransform, uppercase, visibility, visible, visited, width)
-import Html.Styled exposing (Html, a, article, b, div, h1, li, span, text, ul)
+import Html.Styled exposing (Html, a, article, div, h2, li, span, text, ul)
 import Html.Styled.Attributes exposing (css, href)
 import Page.Career as Career exposing (title)
 import Page.Connect as Connect exposing (title)
@@ -11,7 +11,7 @@ import Page.Index as Index exposing (title)
 import Page.Websites as Websites exposing (title)
 import Process
 import Routes as Routes exposing (Route, routeMatchUrl, routeParseUrl)
-import Style as Style exposing (backgroundCenter, backgroundLeft, backgroundRight, flexChild, flexContainerColumns, footer, h2, header, main_, nav, onClickPreventDefault, theme)
+import Style as Style exposing (backgroundCenter, backgroundLeft, backgroundRight, flexChild, flexContainerColumns, footer, h3, header, main_, nav, onClickPreventDefault, theme)
 import Task
 import Url
 
@@ -96,12 +96,18 @@ update msg model =
             ( { model | mainOpacity = value }, Cmd.none )
 
         NavClicked path ->
-            ( { model | mainOpacity = 0 }, delay 333 <| DelayedLocalLoad model.key path )
+            if path /= model.url.path then
+                ( { model | mainOpacity = 0 }, delay 1000 <| DelayedLocalLoad model.key path )
+            else
+                ( model, Cmd.none )
 
         LinkClicked urlRequest ->
             case urlRequest of
                 Browser.Internal url ->
-                    ( { model | mainOpacity = 0 }, delay 333 <| DelayedLocalLoad model.key (Url.toString url) )
+                    if url /= model.url then
+                        ( { model | mainOpacity = 0 }, delay 1000 <| DelayedLocalLoad model.key (Url.toString url) )
+                    else
+                        ( model, Cmd.none )
 
                 Browser.External href ->
                     ( model, Nav.load href )
@@ -194,11 +200,11 @@ view model =
                     [ span [ css [ Style.flexContainerRows, maxWidth (px 1366), width (px 1366), margin2 (em 0) auto, alignItems stretch ] ]
                         [ Style.appLogo
                         , div [ css [ Style.flexContainerColumns ] ]
-                            [ h1 []
+                            [ h2 []
                                 [ text "Martin Hollstein"
                                 ]
                             , span []
-                                [ text "Cloud Native Architect Developer in Wisconsin"
+                                [ text "Cloud Application Developer & Architect in Wisconsin"
                                 ]
                             ]
                         , Style.nav [ css navDisplay ]
@@ -212,7 +218,7 @@ view model =
                     ]
                 , Style.footer []
                     [ span [ css [ Style.flexContainerRows, maxWidth (px 1366), width (px 1366), margin2 (em 0) auto, alignItems stretch ] ]
-                        [ text "Copyright 2019, Martin Hollstein"
+                        [ text "Copyright 2020, Martin Hollstein"
                         ]
                     ]
                 ]
@@ -233,7 +239,7 @@ routeView activeTitle =
 
 bigLink : String -> String -> Html Msg
 bigLink path displayName =
-    h2 []
+    h3 []
         [ a
             [ href path
             , onClickPreventDefault (NavClicked path)

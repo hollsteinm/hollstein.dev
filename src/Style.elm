@@ -1,6 +1,6 @@
-module Style exposing (appBody, appLogo, article, backgroundCenter, backgroundLeft, backgroundRight, flexChild, flexContainerColumns, flexContainerRows, footer, h1, h2, h3, h4, h5, header, main_, nav, onClickPreventDefault, p, section, sectionGroup, theme)
+module Style exposing (appBody, appLogo, article, backgroundCenter, backgroundLeft, backgroundRight, flexChild, flexContainerColumns, flexContainerRows, footer, h1, h2, h3, h4, h5, header, main_, nav, onClickPreventDefault, p, section, sectionWordy, sectionGroup, theme)
 
-import Css exposing (Color, Style, absolute, alignItems, auto, backgroundColor, batch, borderLeft3, borderRadius, borderRight3, borderTop3, calc, center, color, column, displayFlex, em, flex, flexBasis, flexDirection, flexEnd, flexGrow, flexStart, flexWrap, fontFamilies, fontSize, fontWeight, height, hex, hidden, int, justifyContent, left, margin, margin2, marginLeft, marginRight, maxHeight, maxWidth, minHeight, minus, opacity, overflow, padding, padding2, paddingLeft, paddingRight, pct, position, px, row, solid, stretch, top, transparent, vh, width, wrap, zIndex)
+import Css exposing (Color, Style, absolute, alignItems, auto, backgroundColor, batch, borderLeft3, borderRadius, borderRight3, borderTop3, calc, center, color, column, displayFlex, em, flex, flexBasis, flexDirection, flexEnd, flexGrow, flexStart, flexWrap, fontFamilies, fontSize, fontWeight, height, hex, hidden, int, justifyContent, left, margin, margin2, marginLeft, marginRight, maxHeight, maxWidth, minHeight, minus, overflow, padding, padding2, paddingLeft, paddingRight, pct, position, px, row, solid, stretch, top, transparent, vh, width, wrap, zIndex)
 import Css.Transitions as Transitions exposing (linear, transition, easeIn)
 import Html.Styled as Styled exposing (Attribute, Html, div, footer, header, img, main_, nav, p, styled)
 import Html.Styled.Attributes exposing (alt, css, src, title)
@@ -228,8 +228,22 @@ section =
         , margin2 (em 0.5) (em 0.5)
         , padding2 (em 0) (em 1)
         , flexBasis (pct 45)
-        , minHeight (em 12)
-        , height (em 12)
+        , minHeight (em 14)
+        , height (em 14)
+        , maxWidth (pct 45)
+        ]
+        
+sectionWordy : List (Attribute msg) -> List (Html msg) -> Html msg
+sectionWordy =
+    styled Styled.section
+        [ flexContainerColumns
+        , backgroundColor theme.background
+        , flexChild
+        , margin2 (em 0.5) (em 0.5)
+        , padding2 (em 0) (em 1)
+        , flexBasis (pct 45)
+        , minHeight (em 24)
+        , height (em 24)
         , maxWidth (pct 45)
         ]
 
@@ -273,8 +287,8 @@ backgroundRight =
             , width (px 0)
             , height (px 0)
             , zIndex (int -99)
-            , borderTop3 (px 1920) solid theme.secondary
-            , borderLeft3 (px 1920) solid transparent
+            , borderTop3 (vh 100) solid theme.secondary
+            , borderLeft3 (vh 199) solid transparent
             , overflow hidden
             ]
         ]
@@ -291,8 +305,8 @@ backgroundLeft =
             , width (px 0)
             , height (px 0)
             , zIndex (int -98)
-            , borderTop3 (px 1256) solid theme.primary
-            , borderRight3 (px 1256) solid transparent
+            , borderTop3 (vh 100) solid theme.primary
+            , borderRight3 (vh 180) solid transparent
             , overflow hidden
             ]
         ]

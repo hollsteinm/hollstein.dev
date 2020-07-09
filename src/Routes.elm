@@ -16,7 +16,7 @@ routeMatcher =
     oneOf
         [ Parser.map Index Parser.top
         , Parser.map Career (s "career")
-        , Parser.map Websites (s "websites")
+        , Parser.map Websites (s "projects")
         , Parser.map Connect (s "connect")
         ]
 
@@ -41,7 +41,7 @@ routeMatchUrl route =
             "/career"
 
         Websites ->
-            "/websites"
+            "/projects"
 
         Connect ->
             "/connect"
