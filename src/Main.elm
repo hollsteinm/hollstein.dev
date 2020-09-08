@@ -2,16 +2,18 @@ module Main exposing (main)
 
 import Browser exposing (application)
 import Browser.Navigation as Nav
-import Css exposing (alignItems, auto, color, em, hidden, hover, int, listStyleType, margin2, maxWidth, minWidth, none, opacity, paddingLeft, paddingRight, paddingTop, pct, px, stretch, textDecoration, textTransform, uppercase, visibility, visible, visited, width)
+import Json.Encode as Encode
+import Css exposing (display, alignItems, auto, color, em, hidden, hover, int, listStyleType, margin2, maxWidth, minWidth, none, opacity, paddingLeft, paddingRight, paddingTop, pct, px, stretch, textDecoration, textTransform, uppercase, visibility, visible, visited, width)
+import Css.Media as Media exposing (screen, only, withMedia)
 import Html.Styled exposing (Html, a, article, div, h2, li, span, text, ul)
-import Html.Styled.Attributes exposing (css, href)
+import Html.Styled.Attributes exposing (css, href, property)
 import Page.Career as Career exposing (title)
 import Page.Connect as Connect exposing (title)
 import Page.Index as Index exposing (title)
 import Page.Websites as Websites exposing (title)
 import Process
 import Routes as Routes exposing (Route, routeMatchUrl, routeParseUrl)
-import Style as Style exposing (backgroundCenter, backgroundLeft, backgroundRight, flexChild, flexContainerColumns, footer, h3, header, main_, nav, onClickPreventDefault, theme)
+import Style as Style exposing (flexChild, flexContainerColumns, footer, h3, header, main_, nav, onClickPreventDefault, theme)
 import Task
 import Url
 
@@ -193,9 +195,9 @@ view model =
     , body =
         [ Html.Styled.toUnstyled
             (Style.appBody []
-                [ backgroundCenter
-                , backgroundLeft
-                , backgroundRight
+                [ div [property "className" (Encode.string "bg bg-center")] []
+                , div [property "className" (Encode.string "bg bg-right")] []
+                , div [property "className" (Encode.string "bg bg-left")] []
                 , Style.header []
                     [ span [ css [ Style.flexContainerRows, maxWidth (px 1366), width (px 1366), margin2 (em 0) auto, alignItems stretch ] ]
                         [ Style.appLogo
@@ -203,7 +205,7 @@ view model =
                             [ h2 []
                                 [ text "Martin Hollstein"
                                 ]
-                            , span []
+                            , span [ css [ withMedia [only screen [Media.maxWidth (px 719)]] [ display none ] ]]
                                 [ text "Cloud Application Developer & Architect in Wisconsin"
                                 ]
                             ]

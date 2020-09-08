@@ -37,6 +37,57 @@
         margin: 0 !important;
         overflow: hidden !important;
       }
+      
+      .bg {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 0;
+        height: 0;
+        overflow: hidden;
+      }
+      
+      .bg.bg-center {
+        width: 100%;
+        height: 100%;
+        background-color: #fdd400;
+        z-index: -100;
+      }
+      
+      @media print {
+        .bg.bg-left {
+          border: 0 0 0 0 solid transparent;
+        }
+        .bg.bg-right {
+          border: 0 0 0 0 solid transparent;
+        }
+        .bg.bg-center {
+          background-color: #ffffff;
+        }
+      }
+      
+      @media screen and (max-width: 719px) {
+        .bg.bg-left {
+          border: 0 0 0 0 solid transparent;
+        }
+        .bg.bg-right {
+          border: 0 0 0 0 solid transparent;
+        }
+      }
+      
+      @media screen and (min-width: 720px) {
+        .bg.bg-left {
+            z-index: -98;
+            border-top: 100vh solid #fdb232;
+            border-right: 180vh solid transparent;
+        }
+        
+        .bg.bg-right {
+            z-index: -98;
+            border-top: 100vh solid #02b8a2;
+            border-left: 199vh solid transparent;
+        }
+      }
     </style>
   </head>
   <body>

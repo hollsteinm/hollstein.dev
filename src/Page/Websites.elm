@@ -26,7 +26,7 @@ view =
             (Just "https://img.itch.zone/aW1nLzE4NjQ4MjcucG5n/32x32%23/qphIbA.png")
         , websiteViewItem "World of Phyntasie"
             "https://www.worldofphyntasie.com"
-            "A text adventure game that is hosted client side. A small project to excercise my creative story telling. This project used to be a .NET based MuD. Our peak user base was over 200 registered players. It is now a single player adventure."
+            "A text adventure game that is hosted client side. A small project to excercise my creative story telling. This project used to be a .NET based MuD. Our peak user base was over 200 registered players. It is now a single player adventure written in AngularJS."
             Nothing
         ]
     , h2
@@ -36,27 +36,27 @@ view =
     , sectionGroup []
         [ websiteViewItem "Cream City Code / FallX"
             "https://www.fallexperiment.com"
-            "This was a joint effort created by Cream City Code volunteers for the Fall Experiment / Cream City Code conference in Milwaukke, WI. I contributed time to exploratory features and frontend work."
+            "This was a joint effort created by Cream City Code volunteers for the Fall Experiment / Cream City Code conference in Milwaukke, WI. I contributed time to exploratory features and frontend work. This website was built with Gatsby, which utizlizes GraphQL and React for development. Deployed via Netlify."
             (Just "https://fallexperiment.com/icons/icon-48x48.png")
         , websiteViewItem "MnM Adventureel"
             "https://www.mnmadventureel.com"
-            "A website that showcases the travelling that fullfills my life. One of the greatest experiences we can have is engaging with the world around us. Beyond that, sharing it with others can bring joy."
+            "A website that showcases the travelling that fullfills my life. One of the greatest experiences we can have is engaging with the world around us. Beyond that, sharing it with others can bring joy. This website was built with Gatsby, which utizlizes GraphQL and React for development. Deployed via AWS Codepipelines."
             (Just "https://www.mnmadventureel.com/icons/icon-48x48.png")
         , websiteViewItem "Eight Hours"
             "https://www.eighthoursgame.com"
-            "A video game website for a hobby project of mine. I enjoy making games and I wanted to make a 'Classic Indie Horror' game with a slight twist. This project also involves working with local paranormal groups."
+            "A video game website for a hobby project of mine. I enjoy making games and I wanted to make a 'Classic Indie Horror' game with a slight twist. This project also involves working with local paranormal groups. This website is built using vanilla HTML and CSS. There is a sprinkling of vanilla JavaScript and JQuery. Not every project needs a framework. Deployed via AWS Codepipelines."
             Nothing
         , websiteViewItem "Troll Purse"
             "https://www.trollpurse.com"
-            "A website containing a collection and links to storefronts for all of my hobby video game projects."
+            "A website containing a collection and links to storefronts for all of my hobby video game projects. This website is built using vanilla HTML and CSS. There is a sprinkling of vanilla JavaScript and JQuery. Deployed via AWS Codepipelines."
             Nothing
         , websiteViewItem "World of Phyntasie"
             "https://www.worldofphyntasie.com"
-            "A text adventure game that is hosted client side. A small project to excercise my creative story telling."
+            "A text adventure game that is hosted client side. A small project to excercise my creative story telling. This application is built with AngularJS. Deployed via AWS Codepipelines."
             Nothing
         , websiteViewItem "Hollstein.Dev"
             "https://www.hollstein.dev"
-            "This website. Not much else to say about it. A good way to show off a portfolio of my work."
+            "This website. Not much else to say about it. A good way to show off a portfolio of my work. The website is built entirely in Elm and deployed via AWS Codepipelines."
             (Just "assets/face.jpg")
         ]
     , h2
@@ -100,7 +100,10 @@ view =
         [ text "Presentations"
         ]
     , sectionGroup []
-        [ textViewItem "Coding With a Centarian: GraphQL Server"
+        [ textViewItem "API Wars (Wisconsin .NET Users Group) Panelist"
+            "September 8th, 2020"
+            "The Wisconsin .NET Users Group was founded on February 12, 2002 at the launch of Visual Studio.NET. Our mission from inception has been to develop a peer group of developers, architects, and managers who are interested in learning, sharing and growing their Microsoft .NET knowledge and capabilities. The group's vision is to provide members with a forum to hear top industry experts speak, learn and teach others who are interested in the same technologies as you and are facing the same challenges."
+         , textViewItem "Coding With a Centarian: GraphQL Server"
             "June 26th, 2020"
             "Coding with a Centarian (CwaC) is a livestream hosted by Centare where two developers pair program as a student and teacher focused on a specific technology. For this CwaC I instructed on how to implement a GraphQL server in Node using Apollo Server. There were several implementation and design discussions as well."
          , textViewItem "Webinar: The Cost of a GraphQL Migration"

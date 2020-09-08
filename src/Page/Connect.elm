@@ -14,7 +14,7 @@ title =
 view : List (Html msg)
 view =
     [ p [ css [ margin2 (em 1) (em 0), color theme.background ] ]
-        [ text "If you want to get in touch professionally, here are the channels to reach me by. I will be most responsive on LinkedIn - as it has a chat feature. Github is here for those interested in seeing some of my contributions and repositories of code. These commits go as far back as my freshman year in college. If you would like to see the output of the content I contribute to, I would refer you to the 'Websites' section of this website."
+        [ text "If you want to get in touch professionally, here are the channels to reach me by. I will be most responsive on LinkedIn - as it has a chat feature. Github is here for those interested in seeing some of my contributions and repositories of code. These commits go as far back as my freshman year in college. If you would like to see the output of the content I contribute to, I would refer you to the 'Projects' section of this website."
         ]
     , h2 [ css [ color theme.background ] ]
         [ text "Professional Websites"
