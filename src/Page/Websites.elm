@@ -100,7 +100,10 @@ view =
         [ text "Presentations"
         ]
     , sectionGroup []
-        [ textViewItem "API Wars (Wisconsin .NET Users Group) Panelist"
+        [textViewItem "Intro to the Quantum Cloud"
+            "October 29th, 2020"
+            "Explore the current offerings of Quantum Computing as provided by cloud services such as AWS and IBM. A quick overview of quantum computing, applications of it in the present, and the hopes of the future."
+         , textViewItem "API Wars (Wisconsin .NET Users Group) Panelist"
             "September 8th, 2020"
             "The Wisconsin .NET Users Group was founded on February 12, 2002 at the launch of Visual Studio.NET. Our mission from inception has been to develop a peer group of developers, architects, and managers who are interested in learning, sharing and growing their Microsoft .NET knowledge and capabilities. The group's vision is to provide members with a forum to hear top industry experts speak, learn and teach others who are interested in the same technologies as you and are facing the same challenges."
          , textViewItem "Coding With a Centarian: GraphQL Server"
