@@ -1,0 +1,15 @@
+@import '_brand';
+
+@mixin media-size($size) {
+  $min: map-get($layouts, 'min-' + $size);
+  $max: map-get($layouts, 'max-' + $size);
+  
+  @media screen and (min-width: $min) and (max-width: $max) {
+    @content;
+  }
+}
+
+@mixin flex-fill {
+  display: flex;
+  flex: 0 0 100%;
+}

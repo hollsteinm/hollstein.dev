@@ -1,0 +1,72 @@
+$primary-color: #fdb232;
+$secondary-color: #02b8a2;
+$highlight-color: #fdd400;
+$loud-color: #db1796;
+$background-color: #01535f;
+
+$regular-fonts: 'courier', serif;
+$header-fonts: 'verdana', sans-serif;
+
+$layout-breakpoint-min-xs: 0px;
+$layout-breakpoint-min-s: 576px;
+$layout-breakpoint-min-m: 768px;
+$layout-breakpoint-min-lg: 992px;
+$layout-breakpoint-min-xg: 1200px;
+$layout-breakpoint-max-xs: 575px;
+$layout-breakpoint-max-s: 767px;
+$layout-breakpoint-max-m: 991px;
+$layout-breakpoint-max-lg: 1199px;
+$layout-breakpoint-max-xg: 1399px;
+
+$layouts: (
+  min-xs: 0px,
+  min-s: 576px,
+  min-m: 768px,
+  min-lg: 992px,
+  min-xg: 1200px,
+  max-xs: 575px,
+  max-s: 767px,
+  max-m: 991px,
+  max-lg: 1199px,
+  max-xg: 1399px,
+);
+
+.primary-color {
+  color: $primary-color;
+}
+
+.secondary-color {
+  color: $secondary-color;
+}
+
+.highlight-color {
+  color: $highlight-color;
+}
+
+.background-color {
+  color: $background-color;
+}
+
+.loud-color {
+  color: $loud-color;
+}
+
+.primary-bg {
+  background-color: $primary-color;
+}
+
+.secondary-bg {
+  background-color: $secondary-color;
+}
+
+.highlight-bg {
+  background-color: $highlight-color;
+}
+
+.background-bg {
+  background-color: $background-color;
+}
+
+.loud-bg {
+  background-color: $loud-color;
+}

@@ -1,0 +1,345 @@
+@import '_brand', '_mixins', '_animations';
+
+
+html {
+  scroll-behavior: smooth;
+  body {
+    margin: 0;
+    overflow-x: hidden;
+    background-color: $background-color;
+    font-family: $regular-fonts;
+    color: $primary-color;
+    display: flex;
+    flex-flow: row wrap;
+    align-items: stretch;
+    height: 100vh;
+    width: 100vw;
+    
+    span {
+      &.highlight-text {
+        color: $highlight-color;
+      }
+      &.secondary-text {
+        color: $secondary-color;
+      }
+    }
+
+    p {
+      max-width: $layout-breakpoint-max-m;
+    }
+    
+    img {
+      display: flex;
+      &.round-logo {
+        max-width: 128px;
+        min-width: 128px;
+        max-height: 128px;
+        min-height: 128px;
+        border-radius: 50%;
+        margin: 2em;
+        
+        &.ego {
+          max-width: 512px;
+          min-width: 512px;
+          max-height: 512px;
+          min-height: 512px;
+        }
+      }
+    }
+    
+    div{
+      &.flip {
+        background-color: transparent;
+        width: 30%;
+        height: 425px;
+        perspective: 1920px;
+        transition: transform 0.5s;
+        transform: scale(1,1);
+        
+        &.sz-lg {
+          width: 50%;
+          height: 20;
+          perspective: 1920px;
+        }
+        
+        &.hidden {
+          transform: scale(0,0)
+        }
+        
+        &.hide {
+          display: none;
+        }
+        
+        img {
+          overflow: hidden;
+          margin: 25% 25% 25% 25%;
+        }
+        
+        >div {
+          &.main {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            text-align: center;
+            transition: transform 0.8s;
+            transform-style: preserve-3d;
+            flex-flow: row wrap;
+            
+            >div {
+              &.front{
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                -webkit-backface-visibility: hidden;
+                backface-visibility: hidden;
+                background-color: $secondary-color;
+                color: $primary-color;
+                justify-content: center;
+                align-items: center;
+                overflow: hidden;
+                
+                >img {
+                  max-width: 100%;
+                  max-height: 100%;
+                }
+              }
+              
+              &.back {
+                flex-flow: row wrap;
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                -webkit-backface-visibility: hidden;
+                backface-visibility: hidden;
+                background-color: $primary-color;
+                color: $background-color;
+                transform: rotateY(180deg);
+                >h1 {
+                  flex: 0 1 100%;
+                  margin: 0 0.5em 0 0.5em
+                }
+                >h2 {
+                  flex: 0 1 100%;
+                  margin: 0.5em 0.5em 0 0.5em
+                }
+                >p {
+                  padding: 0 0.75em 0 0.75em;
+                }
+                a {
+                  flex: 0 1 100%;
+                  color: $secondary-color;
+                  &:visited {
+                    color: inherit;
+                  }
+                  &:hover {
+                    color: $highlight-color;
+                  }
+                  &:after {
+                    width: 0; 
+                    height: 0; 
+                    border-left: 5px solid transparent;
+                    border-right: 5px solid transparent;
+                    border-bottom: 5px solid $secondary-color;
+                  }
+                }
+              }
+            }
+          }
+        }
+        &:hover{
+          >div.main{
+            transform: rotateY(180deg);
+          }
+        }
+      }
+    }
+    
+    div {
+      display: flex;
+      
+      &.chevron-circle {
+        display: inline-block;
+        width: 4em;
+        height: 4em;
+        border: 0.5em solid $secondary-color;
+        border-radius: 50%;
+        margin-left: 0.75em;
+        animation-name: cartoon-bounce;
+        animation-timing-function: cubic-bezier(0.280, 0.840, 0.420, 1);
+        animation-duration: 2s;
+        animation-iteration-count: infinite;
+        cursor: pointer;
+      
+        &.down {
+          margin-top: 16em;
+          &:after {
+            content: '';
+            display: inline-block;
+            margin-top: 0.6em;
+            margin-left: 1em;
+            width: 1.4em;
+            height: 1.4em;
+            border-top: 0.5em solid $secondary-color;
+            border-right: 0.5em solid $secondary-color;
+            -moz-transform: rotate(135deg);
+            -webkit-transform: rotate(135deg);
+            transform: rotate(135deg);
+          }
+        }
+        &.up {
+          margin-top: 4em;
+          &:after {
+            content: '';
+            display: inline-block;
+            margin-top: 1.4em;
+            margin-left: 1.1em;
+            width: 1.4em;
+            height: 1.4em;
+            border-top: 0.5em solid $secondary-color;
+            border-right: 0.5em solid $secondary-color;
+            -moz-transform: rotate(315deg);
+            -webkit-transform: rotate(315deg);
+            transform: rotate(315deg);
+          }
+        }
+      }
+      
+      &.row-container {
+        flex-flow: row wrap
+      }
+      
+      &.col-container {
+        flex-flow: column wrap
+      }
+      
+      &.break {
+        flex-basis: 100%;
+        width: 0;
+      }
+      
+      &.header {
+        flex: 0 4 100%;
+        justify-content: center;
+        align-items: center;
+        padding: 3em 0 0 0;
+        margin: 0 0 8em 0;
+        h1 {
+          display: flex;
+          margin: 0
+        }
+        h2 {
+          display: flex;
+          margin: 0
+        }
+        
+        div.col-container {
+          justify-content: center;
+        }
+        
+        div.row-container {
+          justify-content: center;
+        }
+        
+        a {
+          color: $primary-color;
+          &:visited {
+            color: inherit;
+          }
+          &:hover {
+            color: $highlight-color;
+          }
+        }
+      }
+    
+      &.content {
+        @include flex-fill;
+        flex-flow: row wrap;
+        align-items: center;
+        justify-content: center;
+        align-content: center;
+        
+        section#legacy {
+          @include flex-fill;
+        }
+        
+        section#legacy+section {
+          @include flex-fill;
+          margin: 0 5% 0 5% 0;
+        }
+        
+        .cert-shoutout {
+          height: 425px;
+          padding-top: 10em;
+          margin-top: 2em;
+          @include flex-fill;
+          align-items: center;
+          justify-content: center;
+          align-content: center;
+        }
+        
+        .vr-shoutout {
+          height: 16em;
+          background-color: $loud-color;
+          color: $secondary-color;
+          transform: rotate(-4deg);
+          display: flex;
+          flex: 0 0 300%;
+          align-content: center;
+          justify-content: center;
+          margin: 8em 0 8em 0;
+          padding-bottom: 7em;
+          
+          h2 {
+            font-size: 8em;
+          }
+          
+          a {
+            color: $primary-color;
+            &:visited {
+              color: inherit;
+            }
+            &:hover {
+              color: $highlight-color;
+            }
+          }
+        }
+        
+        button {
+          background-color: transparent;
+          color: $secondary-color;
+          border-top: 0;
+          border-left: 0;
+          border-bottom: 0.125em solid $primary-color;
+          border-right: 0;
+          font-size: 2em;
+          display: flex;
+          justify-self: center;
+          align-self: center;
+          margin: 1em 1em 1em 1em;
+          transition: color 333ms, background-color 333ms;
+          cursor: pointer;
+          &:hover {
+            color: $primary-color;
+            border-bottom: 0.125em solid $secondary-color;
+          }
+        }
+        
+        >section {
+          display: flex;
+          flex-flow: row wrap;
+          justify-content: center;
+          margin-left: 2em;
+          margin-right: 2em;
+        }
+      }
+      
+      &.footer {
+        flex: 0 4 100%;
+        margin-top: 4em;
+        >p{
+          margin: 0 2em 0 2em;
+        }
+      }
+    }
+  }
+}

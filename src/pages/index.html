@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Martin Hollstein</title>
+    <meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <link href="https://hollstein.dev" rel="canonical" />
+    <link rel="shortcut icon" href="/assets/face.jpg" />
+    <link rel="stylesheet" href="/styles/index.css">
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Martin Hollstein" />
+    <meta name="twitter:url" content="https://hollstein.dev/index.html" />
+    <meta
+      name="twitter:image"
+      content="https://hollstein.dev/assets/face.jpg"
+    />
+    <meta
+      name="twitter:description"
+      content="Martin Hollstein - Cloud Native Architect in Wisconsin"
+    />
+    <meta
+      name="description"
+      content="Martin Hollstein - Cloud Native Architect in Wisconsin"
+    />
+    <meta property="og:title" content="Martin Hollstein" />
+    <meta property="og:type" content="website" />
+    <meta
+      property="og:description"
+      content="Martin Hollstein - Cloud Native Architect in Wisconsin"
+    />
+    <meta property="og:url" content="https://hollstein.dev" />
+    <meta property="og:image" content="https://hollstein.dev/assets/face.jpg" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <script src="/scripts/index.min.js"></script>
+  </head>
+  <body>
+    <div class="header">
+      <div class="row-container">
+        <img src="/assets/face.jpg" class="round-logo ego"/>
+        <div class="col-container">
+          <h3>Hello! My name is</h3>
+          <h1><span class="secondary-text">Martin Hollstein</span></h1>
+          <p>I create digital solutions for irl problems. I specialize in cloud native platforms. I am currently an Engineering Manager at <span class="secondary-text">Centare.</span></p>
+        </div>
+        <div class="break"></div>
+        <div onclick="scrollToSection('vr')" class="chevron-circle down"></div>
+      </div>
+    </div>
+    <div class="content">
+      <section id="vr">
+        <div class="col-contianer vr-shoutout">
+          <a href="/vr">
+            <h2>VR / 3D Tour!</h2>
+          </a>
+        </div>
+        <div class="break"></div>
+        <div onclick="scrollToSection('certs')" class="chevron-circle down"></div>
+      </section>
+      <section id="certs">
+        <div class="col-contianer cert-shoutout">
+          <a href="https://www.credly.com/badges/63a12641-e5e6-4462-b911-8413614a42c5/public_url" target="_blank">
+            <img src="/assets/aws-certified-solutions-architect-professional.png" />
+          </a>
+          <a href="https://www.credly.com/badges/9511cdc5-7504-48a0-9b02-0e22e8fcfa35/public_url" target="_blank">
+            <img src="/assets/aws-certified-security-specialty.png" />
+          </a>
+          <a href="https://www.credly.com/badges/f37bff8e-5e17-457e-a8be-1eb9604e8f91/public_url" target="_blank">
+            <img src="/assets/aws-certified-solutions-architect-associate.png" />
+          </a>
+        </div>
+        <div class="break"></div>
+        <div onclick="scrollToSection('legacy')" class="chevron-circle down"></div>
+      </section>
+      <section id="legacy">
+        <button onclick="filterFlipCard('project')">Projects</button>
+        <button onclick="filterFlipCard('career')">Career</button>
+        <button onclick="filterFlipCard('speaking')">Events</button>
+        <button onclick="filterFlipCard('blog')">Articles</button>
+        <button onclick="clearFilterFlipCard()">Clear</button>
+      </section>
+      <section>
+        <div class="flip project">
+          <div class="main">
+            <div class="front"><img style="margin:0;transform:scale(1.9);" src="/assets/eighthoursscreenlogosquare.png"/></div>
+            <div class="back">
+              <h2>Video Game</h2>
+              <a href="https://trollpurse.itch.io/eighthours" target="_blank"><h1>Eight Hours</h1></a>
+              <p>I started off in the Game Dev world and never lost my passion. I really enjoy the psychology around the design of horror games. I also really like scary movies. Naturally, this led me to create a short horror game called "Eight Hours".</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="flip speaking">
+          <div class="main">
+            <div class="front" style="background-color: #2e37de;"><img src="/assets/introtothequantumcloud.jpeg"/></div>
+            <div class="back">
+              <h2>October 29th, 2020</h2>
+              <a href="https://web.archive.org/web/20210917192902/https://www.centare.com/events/intro-to-the-quantum-cloud" target="_blank"><h1>Intro to the Quantum Cloud</h1></a>
+              <p>A public webinar I presented while working at Centare. I explore the current offerings of Quantum Computing as provided by cloud services such as AWS and IBM. I then provided a quick overview of quantum computing, applications of it in the present, and the hopes of the future.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="flip speaking">
+          <div class="main">
+            <div class="front"><img src="/assets/dotnetusersgroup.png"/></div>
+            <div class="back">
+              <h2>September 8th, 2020</h2>
+              <a href="https://youtu.be/J3dJXA2RF4w" target="_blank"><h1>API Wars Panelist</h1></a>
+              <p>I was identified as an expert in GraphQL API technology by the Wisconsin .NET Users Group. They invited me to speak as a panelist for thier API Wars series of events. This event puts experts in various API technologies together to do a presentation and Q&A on specific API technologies.</p>
+            </div>
+          </div>
+        </div>
+        
+        <div class="flip speaking">
+          <div class="main">
+            <div class="front" style="background-color: lightgray;"><img src="/assets/graphqlrhodaminelogo.png"/></div>
+            <div class="back">
+              <h2>June 26th, 2020</h2>
+              <h1>GraphQL Server Livestream</h1>
+              <p>Coding with a Centarian (CwaC) is a livestream hosted by Centare where two developers pair program as a student and teacher focused on a specific technology. For this CwaC I instructed the host on implementation of a GraphQL server in Node using Apollo Server. Following the event, I fielded questions related to GraphQL from the audience.</p>
+            </div>
+          </div>
+        </div>
+        
+        <div class="flip speaking">
+          <div class="main">
+            <div class="front" style="background-color: #E10098;"><img src="/assets/graphqlwhitelogo.png"/></div>
+            <div class="back">
+              <h2>June 17th, 2020</h2>
+              <a href="https://web.archive.org/web/20210917192847/https://www.centare.com/events/the-cost-of-a-graphql-migration" target="_blank"><h1>The Cost of a GraphQL Migration</h1></a>
+              <p>I presented a Webinar about GraphQL from an executive level. The discussion focused on where opportunities to generate revenue via leveraging GraphQL, what will be the costs of implementing GraphQL, and the technical cost and preperations discussions required to begin a migraiton or adoption of GraphQL APIs. This discussion resulted in a checklist of key discussions points when teams want to discuss migration or adoption of GraphQL APIs.</p>
+            </div>
+          </div>
+        </div>
+        
+        <div class="flip speaking">
+          <div class="main">
+            <div class="front" style="background-color: #ff6f61;"><img src="/assets/pheonixframeworklogo.png"/></div>
+            <div class="back">
+              <h2>January 24th, 2019</h2>
+              <h1>Up and Running with Phoenix Framework</h1>
+              <p>Forward Thinkings are presentations discussing rising technology trends, stacks, and practices. In this presentation I walk through the basics of Elixir and the process needed to bootstrap a Pheonix Web Server. The second part of the presentation focused on implementing a few pages and features of a basic MVC application using Phoenix. I also touched on realtime components using Phoenix Channels.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="flip career">
+          <div class="main">
+            <div class="front" style="background-color: #e4b9fe;"><img src="/assets/centarelogowhite.png"/></div>
+            <div class="back">
+              <h2>April 2017 - Present</h2>
+              <a href="https://centare.com/" target="_blank"><h1>Centare - Engineering Manager</h1></a>
+              <p>I am an Engineering Manager at Centare. I work to build an environment of innovation, autonomy, and smart work. I mentor teams in technology while working hands-on with a client. I engage in conversations with C-Suites, executives, managers, and engineers to determine business goals and how technology can help achieve those goals for maximum impact. I don't just talk, I also get down in the trenches and build the solution.</p>
+            </div>
+          </div>
+        </div>
+        
+        <div class="flip career">
+          <div class="main">
+            <div class="front" style="background-color: #db011c"><img src="/assets/milwaukeetoollogo.png"/></div>
+            <div class="back">
+              <h2>January 2021 - March 2021</h2>
+              <a href="https://milwaukeetool.com/" target="_blank"><h1>Milwaukee Tool - Solution Architect Consultant</h1></a>
+              <p>I designed and developed a new search infrastructure. I was also responsible for the execution of the new infrastructure and writing code for new endpoints. This resulted in millisecond response times for the web API. This was an improvement over the original 3.4 second average response time.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="flip career">
+          <div class="main">
+            <div class="front" style="background-color: #007dc5;"><img src="/assets/entegrallogo.png"/></div>
+            <div class="back">
+              <h2>July 2019 - December 2020</h2>
+              <a href="https://entegral.com/" target="_blank"><h1>Entegral - Software Engineer Consultant</h1></a>
+              <p>I implemented new features for frontend and backend services in B2B insurance, collision response, and repair service industry. I guided the teams towards refined automation around RESTful and GraphQL APIs for CI/CD. I designed and implemented micro-service event-driven architectures.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="flip career">
+          <div class="main">
+            <div class="front" style="background-color: #0e497b;"><img style="background-color: transparent;" src="/assets/northwesternmutuallogo.svg"/></div>
+            <div class="back">
+              <h2>December 2017 - June 2019</h2>
+              <a href="https://northwesternmutual.com/" target="_blank"><h1>Northwestern Mutual - Solution Architect Consultant</h1></a>
+              <p>I researched and prototyped development of .NET Framework 4.5 migration from Windows AMIs to Linux Docker images with Win32 C Binary compatibility. I created architecture, designed, and developed a GraphQL API Middleware to abstract frontend and backend service integrations. I mentored a new team to maintain the middleware. I introduced performance improvements of upwards to 50% latency savings via distributed cache use of read only deterministic data. Implement new CI/CD practices to improve API quality and integrated with Slack for developer operations awareness and reliability notifications.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="flip career">
+          <div class="main">
+            <div class="front" style="background-color: #1E92B9;"><img src="/assets/astronauticslogo.png"/></div>
+            <div class="back">
+              <h2>September 2017 - December 2017</h2>
+              <a href="https://astronautics.com/" target="_blank"><h1>Astronautics Corporation of America - Windows IoT Software Engineer Consultant</h1></a>
+              <p>I developed software for electronic flight bag deployed to Boeing aircraft. I deployed to Windows IoT operating system. My primary responsibility was analyzing driver code, assessing disassembled code, writing C++ and C# software for third party integration with Electronic Flight Bag service, and user acceptance testing.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="flip career">
+          <div class="main">
+            <div class="front" style="background-color: white;"><img src="/assets/direct-supply-logo.svg"/></div>
+            <div class="back">
+              <h2>April 2017 - August 2017</h2>
+              <a href="https://directsupply.com/" target="_blank"><h1>Direct Supply - Cloud Native Software Engineering Consultant</h1></a>
+              <p>I designed and developed various applications to support customer success and provide business value with end user products. The applications I developed included eCommerce web applications with automatic product equivalency matching for buy lists from distribution centers. This resulted in reduced investment needed for manual data entry positions.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="flip career">
+          <div class="main">
+            <div class="front" style="background-color: white;"><img src="/assets/rftlogo.png"/></div>
+            <div class="back">
+              <h2>September 2014 - April 2017</h2>
+              <a href="https://www.rft.com/" target="_blank"><h1>RFT - Software Engineer</h1></a>
+              <p>I was asked to join RFT to assist in building an Agile Software Development environment for the current engineering staff. This was meet with great success, reducing bugs reported per sprint by 90%. I also wrote code for a full-stack Angular, ASP.NET, MS SQL server environment. Further, I designed and built a clustered micro-service environment using event-sourcing for data synchronization and rapid iteration of features. I also integrated various IoT and serial devices.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="flip career">
+          <div class="main">
+            <div class="front" style="background-color: #00BF6F;"><img src="/assets/istreamlogo.png"/></div>
+            <div class="back">
+              <h2>January 2014 - September 2014</h2>
+              <a href="https://www.istreamfs.com/" target="_blank"><h1>iStream Financial Services - Software Development Intern</h1></a>
+              <p>I started at iStream Financial Services developing Java MVC applications in Struts. I furthered my skills by optimizing PostgreSQL server queries for read performance. I also scaffolded a unit testing and integration testing framework to assist the team in the journey to full test automation. I also created business facing features focused on enabling Business Analysts to create custom reports.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="flip career">
+          <div class="main">
+            <div class="front" style="background-color: #444;"><img src="/assets/everfirelogo.png"/></div>
+            <div class="back">
+              <h2>August 2013 - January 2014</h2>
+              <a href="https://web.archive.org/web/20150910092557/http://everfirestudios.com/" target="_blank"><h1>EverFire Studios, Inc. - Gameplay Programmer</h1></a>
+              <p>I developed backend servers using AWS EC2 instances, PostgreSQL server, and SmartFox Server to develop a multiplayer digital trading card game called "Black Plague: Bring Out Your Dead". Additionally, I created the front end library to integrate with our backend services for matchmaking, deck building, and turn based game-play. I made additional contributions to the AI used to teach the game. I also built a mobile application to enable game designers to immediately upload and test new or modified cards in a beta environment.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="flip project">
+          <div class="main">
+            <div class="front"><img style="margin:0;transform:scale(1.6);" src="/assets/undeadfredlogo.jfif"/></div>
+            <div class="back">
+              <h2>Video Game</h2>
+              <a href="https://steamcommunity.com/sharedfiles/filedetails/?id=235864463" target="_blank"><h1>Undead Fred: A Grave Tale</h1></a>
+              <p>I worked with a team of mostly college and high school students to develop a small platformer game in Game Maker Studio. I developed the combat mechanics for the player character. I also did all of the FX programming, UI development, and key binding features within the game. I developed the antagonist NPC AI and path finding. This game is playable via the Game Maker Steam Workshop.</p>
+            </div>
+          </div>
+        </div>
+        
+        <div class="flip project">
+          <div class="main">
+            <div class="front"><img style="margin: 0;transform:scale(1.5);" src="/assets/invisiblebattlesstock.jpg"/></div>
+            <div class="back">
+              <h2>Video Game</h2>
+              <a href="https://web.archive.org/web/20141221050255/https://invisiblebattles.com/"><h1>Invisible Battles: The Quest for Hope</h1></a>
+              <p>I developed the core systems for an RPG prototype targeted for PC and Mobile gaming. I created an AI faction and sentiment system, which enabled the player to interact with different NPC clans dynamically. I also created the core RPG abilities system for the game. I worked closely with the Game Designer to implement features as laid out in the Game Design Document.</p>
+            </div>
+          </div>
+        </div>
+        
+        <div class="flip project">
+          <div class="main">
+            <div class="front"><img style="margin:0;transform:scale(1.8);" src="/assets/blackplaguebyodlogo.webp"/></div>
+            <div class="back">
+              <h2>Video Game</h2>
+              <a href="https://web.archive.org/web/20210917200603/https://everfirestudios.wixsite.com/bringoutyourdeadgame" target="_blank"><h1>Black Plague: Bring Out Your Dead</h1></a>
+              <p>I developed backend servers using AWS EC2 instances, PostgreSQL server, and SmartFox Server to develop this multiplayer digital trading card game. Additionally, I created the front end library to integrate with our backend services for matchmaking, deck building, and turn based game-play. I made additional contributions to the AI used to teach the game. I also built a mobile application to enable game designers to immediately upload and test new or modified cards in a beta environment.</p>
+            </div>
+          </div>
+        </div>
+        
+        <div class="flip project">
+          <div class="main">
+            <div class="front"><img src="/assets/worldofphyntasie.png"></div>
+            <div class="back">
+              <h2>Video Game</h2>
+              <a href="https://worldofphyntasie.com/" target="_blank"><h1>World of Phyntasie</h1></a>
+              <p>I also built a single-player text adventure game. A small project to originally designed to exercise my interest in creative story telling. This project used to be a .NET Multi-User Dungeon (MUD). I had a peak of over 200 registered players. I migrated it from Azure and now it is hosted on AWS as single player adventure written in legacy AngularJS.</p>
+            </div>
+          </div>
+        </div>
+        
+        <div class="flip project">
+          <div class="main">
+            <div class="front" style="background-color: black;"><img src="/assets/2019fallx.png"/></div>
+            <div class="back">
+              <h2>Website</h2>
+              <a href="https://fallexperiment.com/" target="_blank"><h1>Cream City Code / FallX</h1></a>
+              <p>I participated in a team effort of Cream City Code volunteers for the Fall Experiment / Cream City Code conference in Milwaukee, WI. I contributed time to exploratory features and frontend work. This website was built with Gatsby, which utilizes GraphQL and React for development. Deployed via Netlify.</p>
+            </div>
+          </div>
+        </div>
+        
+        <div class="flip project">
+          <div class="main">
+            <div class="front" style="background-color: white;"><img src="/assets/mnmadventureellogo.png"/></div>
+            <div class="back">
+              <h2>Website</h2>
+              <a href="https://mnmadventureel.com" target="_blank"><h1>MnM Adventureel</h1></a>
+              <p>A website that showcases the travelling that fulfills my life. One of the greatest experiences we can have is engaging with the world around us. Beyond that, sharing it with others can bring joy. This website was built with Gatsby, which utilizes GraphQL and React for development. Deployed via AWS Code Pipeline.</p>
+            </div>
+          </div>
+        </div>
+        
+        <div class="flip project">
+          <div class="main">
+            <div class="front" style="background-color: black;"><img src="/assets/eighthourslogo.png"/></div>
+            <div class="back">
+              <h2>Website</h2>
+              <a href="https://eighthoursgame.com/" target="_blank"><h1>Eight Hours</h1></a>
+              <p>A video game website for a hobby project of mine. I enjoy making games and I wanted to make a 'Classic Indie Horror' game with a slight twist. This project also involves working with local paranormal groups. This website is built using vanilla HTML and CSS. There is a sprinkling of vanilla JavaScript and JQuery. Not every project needs a framework. Deployed via AWS Code Pipeline.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="flip project">
+          <div class="main">
+            <div class="front" style="background-color: #F15322;"><img src="/assets/2018creamcitycode.svg"/></div>
+            <div class="back">
+              <h2>Mobile Application</h2>
+              <a href="https://web.archive.org/web/20210917202030/https://2018.creamcitycode.com/" target="_blank"><h1>Cream City Code Event App</h1></a>
+              <p>I was the sole contributor to building a mobile application for the Cream City Code conference in Milwaukee, WI. I build the entire stack using AWS Lambda, DynamoDB, Kinesis, React Native, AWS Web API, Cognito, Python, C#, and Javascript. The mobile app was to enable Sponsors capturing of booth visitors, Event Coordinator ticket registration, a prize raffle, and conference metrics. I also built the analytics backend for post-conference review and mobile application monitoring. To account for spotty Wi-Fi in our conference center, this application was fully functional offline. I also trained volunteers and sponsors in the mobile application. I also managed the device selection and purchasing for sponsors and event volunteers. I also ran the day of operations of the application stack.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="flip project">
+          <div class="main">
+            <div class="front" style="background-color: #bdd09f;"><img src="/assets/trollpurselogo.png"/></div>
+            <div class="back">
+              <h2>Website</h2>
+              <a href="https://trollpurse.com" target="_blank"><h1>Troll Purse</h1></a>
+              <p>A website containing a collection and links to storefronts for all of my hobby video game projects. This website is built using vanilla HTML and CSS. There is a sprinkling of vanilla JavaScript and JQuery. Deployed via AWS Code Pipelines.</p>
+            </div>
+          </div>
+        </div>
+        
+        <div class="flip project">
+          <div class="main">
+            <div class="front"><img src="/assets/face.jpg" class="round-logo"/></div>
+            <div class="back">
+              <h2>Website</h2>
+              <h1>Hollstein.Dev</h1>
+              <p>This website. A show off of my portfolio of projects. The main page of the website is built entirely in plain old JavaScript, HTML, and CSS. I do use a sass preprocessor. I also implemented a 3D and VR tour of my experience using Three JS. It is deployed via AWS Code Pipeline and hosted in AWS using S3, Route53, and Cloud Front.</p>
+            </div>
+          </div>
+        </div>
+      
+      <div class="flip blog">
+        <div class="main">
+          <div class="front" style="background-color: #530282;"><img src="/assets/centarelogowhite.png"/></div>
+          <div class="back">
+            <h2>March 23, 2021</h2>
+            <a href="https://web.archive.org/web/20210921132930/https://www.centare.com/insights/intro-to-quantum-computing-with-aws-braket" target="_blank"><h1>Intro to Quantum Computing with Amazon Braket</h1></a>
+            <p>I write numerous blog posts both personally and for my employer. I wrote this blog post as a technical introductory guide to getting started with Quantum Computing using Amazon Braket. I also include architecture diagrams showing how one can integrate applications with the results of Quantum Computing.</p>
+          </div>
+        </div>
+      </div>
+      
+      <div class="flip blog">
+        <div class="main">
+          <div class="front" style="background-color: white;"><img src="/assets/graphqlblacklogo.png" /></div>
+          <div class="back">
+            <h2>May 30, 2019</h2>
+            <a href="https://web.archive.org/web/20210921184901/https://www.centare.com/insights/graph-ql" target="_blank"><h1>What is GraphQL?</h1></a>
+            <p>I wrote this blog post to introduce Midwest developers to GraphQL APIs. It is a short informational post about how GraphQL solves common API development problems, increases performance of applications, and the value it can bring to a business. I also include a list of great resources to get started with GraphQL.</p>
+          </div>
+        </div>
+      </div>
+      
+      <div class="flip blog">
+        <div class="main">
+          <div class="front" style="background-color: rgb(29, 155, 240);"><img src="/assets/twitterlogowhite.svg"/></div>
+          <div class="back">
+            <h2>October 8, 2018</h2>
+            <a href="https://web.archive.org/web/20210921185310/https://www.centare.com/insights/aws-social" target="_blank"><h1>Let's Get Social!</h1></a>
+            <p>I really enjoy using Serverless platforms as an easy method of integrating other platforms with each other and custom applications. In this blog post I go over how one can leverage polyglot language stacks and serverless to rapidly integrate other platforms. This post focuses primarily on integrating with social media websites.</p>
+          </div>
+        </div>
+      </div>
+      
+      <div class="flip blog">
+        <div class="main">
+          <div class="front" style="background-color: #232f3e;"><img src="/assets/awswhitelogo.png"/></div>
+          <div class="back">
+            <h2>April 25, 2018</h2>
+            <a href="https://web.archive.org/web/20210921185135/https://www.centare.com/insights/aws-security-vulnerabilities" target="_blank"><h1>AWS Security Vulnerabilities</h1></a>
+            <p>I find that most people struggle with the shared responsibility of security in the cloud. In this post I focus on AWS resource policies, IAM policies, and how they work. I give a quick example of how to make resources more secure and prevent accidental access to secure resources.</p>
+          </div>
+        </div>
+      </div>
+      
+      <div class="flip blog">
+        <div class="main">
+          <div class="front" style="background-color: #262F48;"><img src="/assets/gamedevnetlogo.png"/></div>
+          <div class="back">
+            <h2>March 25, 2016</h2>
+            <a href="https://www.gamedev.net/tutorials/programming/general-and-gameplay-programming/unreal-engine-4-c-quest-framework-r4316/" target="_blank"><h1>Unreal Engine 4 C++ Quest Framework</h1></a>
+            <p>I wrote a tutorial for a common gameplay feature in UE4. This feature was a system to manage objectives within a game. It also includes logic for progression and including it in the game world. This tutorial has over 30K views.</p>
+          </div>
+        </div>
+      </div>
+      
+      <div class="flip blog">
+        <div class="main">
+          <div class="front" style="background-color: rgb(32, 35, 55);"><img src="/assets/unrealenginelogo.svg"/></div>
+          <div class="back">
+            <h2>January 23, 2018</h2>
+            <a href="https://www.gamedev.net/tutorials/programming/engines-and-middleware/designing-player-world-interaction-in-unreal-engine-4-r4841/" target="_blank"><h1>Designing Player World Interaction in Unreal Engine 4</h1></a>
+            <p>I found that I was constantly implementing a common feature in Unreal Engine 4. There were several methods I used to accomplish this goal. I decided to share what I learned in a tutorial format. This tutorial has over 9K views.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="flip speaking">
+        <div class="main">
+          <div class="front" style="background-color: #febd69;"><img src="/assets/centareawsimmersionday.png"/></div>
+          <div class="back">
+            <h2>June 2, 2021</h2>
+            <a href="https://web.archive.org/web/20210917153841/https://www.centare.com/events/aws-migration-immersion-day" target="_blank"><h1>AWS Migration Immersion Day</h1></a>
+            <p>I am a certified AWS Solutions Architect. Centare was an AWS Advanced Tier Consulting Partner. This gave me the opportunity to participate in special events called AWS Immersion Days. Immersion Days are workshop approaches to using AWS. It can be a specific domain topic or technology topic. I participated in demonstrating the power of AWS for migrating from on-premise to the cloud using Cloud Endure.</p>
+          </div>
+        </div>
+      </div>
+      <div class="break"></div>
+      <div onclick="scrollToSection('legacy')" class="chevron-circle up"></div>
+    </section>
+    </div>
+    <div class="footer">
+      <p>© Martin Hollstein <span id="copyright-year"></span>. All trademarks are property of their respective owners.</p>
+    </div>
+  </body>
+  <script>(function(){document.getElementById("copyright-year").textContent=(new Date()).getFullYear().toString();})()</script>
+</html>
