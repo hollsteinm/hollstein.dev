@@ -43,6 +43,7 @@ class InteractiveSceneBody extends SceneBody {
     super(node, body)
     this.constructedBodyType = body.type;
     this.selected = false;
+    group.attach(this.node);
   }
 
   postPhysics() {
