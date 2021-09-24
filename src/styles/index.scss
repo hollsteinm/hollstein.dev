@@ -128,8 +128,9 @@ html {
                 a {
                   flex: 0 1 100%;
                   color: $secondary-color;
+                  text-decoration: none;
                   &:visited {
-                    color: inherit;
+                    color: $secondary-color;
                   }
                   &:hover {
                     color: $highlight-color;
@@ -241,9 +242,12 @@ html {
         }
         
         a {
-          color: $primary-color;
+          color: $loud-color;
+          margin-right: 2em;
+          margin-top: 4em;
+          text-decoration: none;
           &:visited {
-            color: inherit;
+            color: $loud-color;
           }
           &:hover {
             color: $highlight-color;
@@ -295,8 +299,9 @@ html {
           
           a {
             color: $primary-color;
+            text-decoration: none;
             &:visited {
-              color: inherit;
+              color: $primary-color;
             }
             &:hover {
               color: $highlight-color;
