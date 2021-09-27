@@ -19,6 +19,36 @@ html {
       margin: 0 0.25em 0 0.25em;
     }
     
+    .hide-xs {
+      @include media-size(xs) {
+        display: none !important;
+      }
+    }
+    
+    .hide-s {
+      @include media-size(s) {
+        display: none !important;
+      }
+    }
+    
+    .hide-md {
+      @include media-size(md) {
+        display: none !important;
+      }
+    }
+    
+    .hide-lg {
+      @include media-size(lg) {
+        display: none !important;
+      }
+    }
+    
+    .hide-xg {
+      @include media-size(xg) {
+        display: none !important;
+      }
+    }
+    
     span {
       &.highlight-text {
         color: $highlight-color;
