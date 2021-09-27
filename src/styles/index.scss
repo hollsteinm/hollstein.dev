@@ -15,6 +15,40 @@ html {
     height: 100vh;
     width: 100vw;
     
+    @include media-size(xs) {
+      margin: 0 0.25em 0 0.25em;
+    }
+    
+    .hide-xs {
+      @include media-size(xs) {
+        display: none !important;
+      }
+    }
+    
+    .hide-s {
+      @include media-size(s) {
+        display: none !important;
+      }
+    }
+    
+    .hide-md {
+      @include media-size(md) {
+        display: none !important;
+      }
+    }
+    
+    .hide-lg {
+      @include media-size(lg) {
+        display: none !important;
+      }
+    }
+    
+    .hide-xg {
+      @include media-size(xg) {
+        display: none !important;
+      }
+    }
+    
     span {
       &.highlight-text {
         color: $highlight-color;
@@ -43,6 +77,13 @@ html {
           min-width: 512px;
           max-height: 512px;
           min-height: 512px;
+          
+          @include media-size(xs) {
+            max-width: 256px;
+            min-width: 256px;
+            max-height: 256px;
+            min-height: 256px;
+          }
         }
       }
     }
@@ -55,6 +96,11 @@ html {
         perspective: 1920px;
         transition: transform 0.5s;
         transform: scale(1,1);
+        
+        @include media-size(xs) {
+          width: 100%;
+          height: 400px;
+        }
         
         &.sz-lg {
           width: 50%;
@@ -114,13 +160,19 @@ html {
                 background-color: $primary-color;
                 color: $background-color;
                 transform: rotateY(180deg);
-                >h1 {
+                h1 {
                   flex: 0 1 100%;
-                  margin: 0 0.5em 0 0.5em
+                  margin: 0 0.5em 0 0.5em;
+                  @include media-size(xs) {
+                    font-size: 1.25em;
+                  }
                 }
-                >h2 {
+                h2 {
                   flex: 0 1 100%;
-                  margin: 0.5em 0.5em 0 0.5em
+                  margin: 0.5em 0.5em 0 0.5em;
+                  @include media-size(xs) {
+                    font-size: 0.8em;
+                  }
                 }
                 >p {
                   padding: 0 0.75em 0 0.75em;
@@ -173,6 +225,9 @@ html {
       
         &.down {
           margin-top: 16em;
+          @include media-size(xs) {
+            margin-top: 4em;
+          }
           &:after {
             content: '';
             display: inline-block;
@@ -224,13 +279,25 @@ html {
         align-items: center;
         padding: 3em 0 0 0;
         margin: 0 0 8em 0;
+        
+        @include media-size(xs) {
+          flex: 0 0 100%;
+          padding: 0;
+          margin: 0;
+        }
+        
         h1 {
           display: flex;
-          margin: 0
+          margin: 0;
         }
         h2 {
           display: flex;
           margin: 0
+        }
+        
+        h3 {
+          display: flex;
+          margin: 0;
         }
         
         div.col-container {
@@ -239,6 +306,9 @@ html {
         
         div.row-container {
           justify-content: center;
+          @include media-size(xs) {
+            @include flex-fill;
+          }
         }
         
         a {
@@ -246,6 +316,9 @@ html {
           margin-right: 2em;
           margin-top: 4em;
           text-decoration: none;
+          @include media-size(xs) {
+            margin-top: 0;
+          }
           &:visited {
             color: $loud-color;
           }
@@ -279,6 +352,10 @@ html {
           align-items: center;
           justify-content: center;
           align-content: center;
+          @include media-size(xs) {
+            height: initial;
+            padding-top: 0;
+          }
         }
         
         .vr-shoutout {
@@ -326,6 +403,10 @@ html {
           &:hover {
             color: $primary-color;
             border-bottom: 0.125em solid $secondary-color;
+          }
+          @include media-size(xs) {
+            margin: 4em 0.125em 1em 0.125em;
+            font-size: initial;
           }
         }
         

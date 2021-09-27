@@ -434,6 +434,12 @@ function animate() {
 
 function render() {
   const time = performance.now() / 1000 // seconds
+  
+  cleanIntersected();
+
+  intersectObjects(controller1);
+  intersectObjects(controller2);
+  
   if (lastCallTime === 0) {
     phyworld.step(timeStep)
   } else {
@@ -443,11 +449,6 @@ function render() {
   for (var idx = 0; idx < allSceneBodies.length; ++idx) {
     allSceneBodies[idx].postPhysics();
   }
-  
-  cleanIntersected();
-
-  intersectObjects( controller1 );
-  intersectObjects( controller2 );
 
   renderer.render(scene, camera);
   

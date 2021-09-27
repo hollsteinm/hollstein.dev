@@ -43,17 +43,22 @@
           <h3>Hello! My name is</h3>
           <h1><span class="secondary-text">Martin Hollstein</span></h1>
           <p>I create digital solutions for irl problems. I specialize in cloud native platforms. I am currently an Engineering Manager at <span class="secondary-text">Centare.</span></p>
-          <div class="row-container" style="justify-content: left;">
+          <div class="row-container hide-xs" style="justify-content: left;">
             <a href="https://www.linkedin.com/in/martin-hollstein/" class="fa fa-linkedin">/martin-hollstein</a>
             <a href="https://www.github.com/hollsteinm/" class="fa fa-github">/hollsteinm</a>
           </div>
+          <span class="hide-s hide-m hide-lg hide-xg">
+            <a href="https://www.linkedin.com/in/martin-hollstein/" class="fa fa-linkedin">/martin-hollstein</a>
+            <a href="https://www.github.com/hollsteinm/" class="fa fa-github">/hollsteinm</a>
+          </span>
         </div>
         <div class="break"></div>
-        <div onclick="scrollToSection('vr')" class="chevron-circle down"></div>
+        <div onclick="scrollToSection('vr')" class="chevron-circle down hide-xs"></div>
+        <div onclick="scrollToSection('certs')" class="chevron-circle down hide-s hide-m hide-lg hide-xg"></div>
       </div>
     </div>
     <div class="content">
-      <section id="vr">
+      <section id="vr" class="hide-xs">
         <div class="col-contianer vr-shoutout">
           <a href="/vr">
             <h2>VR / 3D Tour! (WIP)</h2>
@@ -63,7 +68,7 @@
         <div onclick="scrollToSection('certs')" class="chevron-circle down"></div>
       </section>
       <section id="certs">
-        <div class="col-contianer cert-shoutout">
+        <div class="col-container cert-shoutout">
           <a href="https://www.credly.com/badges/63a12641-e5e6-4462-b911-8413614a42c5/public_url" target="_blank">
             <img src="/assets/aws-certified-solutions-architect-professional.png" />
           </a>
@@ -144,7 +149,7 @@
           <div class="main">
             <div class="front" style="background-color: #ff6f61;"><img src="/assets/pheonixframeworklogo.png"/></div>
             <div class="back">
-              <h2>January 24th, 2019</h2>
+              <h2>Jan. 24th, 2019</h2>
               <h1>Up and Running with Phoenix Framework</h1>
               <p>Forward Thinkings are presentations discussing rising technology trends, stacks, and practices. In this presentation I walk through the basics of Elixir and the process needed to bootstrap a Pheonix Web Server. The second part of the presentation focused on implementing a few pages and features of a basic MVC application using Phoenix. I also touched on realtime components using Phoenix Channels.</p>
             </div>
@@ -166,7 +171,7 @@
           <div class="main">
             <div class="front" style="background-color: #db011c"><img src="/assets/milwaukeetoollogo.png"/></div>
             <div class="back">
-              <h2>January 2021 - March 2021</h2>
+              <h2>Jan. 2021 - March 2021</h2>
               <a href="https://milwaukeetool.com/" target="_blank"><h1>Milwaukee Tool - Solution Architect Consultant</h1></a>
               <p>I designed and developed a new search infrastructure. I was also responsible for the execution of the new infrastructure and writing code for new endpoints. This resulted in millisecond response times for the web API. This was an improvement over the original 3.4 second average response time.</p>
             </div>
@@ -177,7 +182,7 @@
           <div class="main">
             <div class="front" style="background-color: #007dc5;"><img src="/assets/entegrallogo.png"/></div>
             <div class="back">
-              <h2>July 2019 - December 2020</h2>
+              <h2>July 2019 - Dec. 2020</h2>
               <a href="https://entegral.com/" target="_blank"><h1>Entegral - Software Engineer Consultant</h1></a>
               <p>I implemented new features for frontend and backend services in B2B insurance, collision response, and repair service industry. I guided the teams towards refined automation around RESTful and GraphQL APIs for CI/CD. I designed and implemented micro-service event-driven architectures.</p>
             </div>
@@ -188,9 +193,9 @@
           <div class="main">
             <div class="front" style="background-color: #0e497b;"><img style="background-color: transparent;" src="/assets/northwesternmutuallogo.svg"/></div>
             <div class="back">
-              <h2>December 2017 - June 2019</h2>
+              <h2>Dec. 2017 - June 2019</h2>
               <a href="https://northwesternmutual.com/" target="_blank"><h1>Northwestern Mutual - Solution Architect Consultant</h1></a>
-              <p>I researched and prototyped development of .NET Framework 4.5 migration from Windows AMIs to Linux Docker images with Win32 C Binary compatibility. I created architecture, designed, and developed a GraphQL API Middleware to abstract frontend and backend service integrations. I mentored a new team to maintain the middleware. I introduced performance improvements of upwards to 50% latency savings via distributed cache use of read only deterministic data. Implement new CI/CD practices to improve API quality and integrated with Slack for developer operations awareness and reliability notifications.</p>
+              <p>I prototyped development of .NET Framework 4.5 migration from Windows AMIs to Linux Docker images with Win32 C Binary compatibility. I architected and developed a GraphQL API Middleware to abstract frontend and backend service integrations. I mentored a new team to maintain the middleware. I introduced performance improvements of 50% latency savings via distributed cache of read only data. Implement new CI/CD practices to improve API quality and integrations for developer operations.</p>
             </div>
           </div>
         </div>
@@ -199,7 +204,7 @@
           <div class="main">
             <div class="front" style="background-color: #1E92B9;"><img src="/assets/astronauticslogo.png"/></div>
             <div class="back">
-              <h2>September 2017 - December 2017</h2>
+              <h2>September 2017 - Dec. 2017</h2>
               <a href="https://astronautics.com/" target="_blank"><h1>Astronautics Corporation of America - Windows IoT Software Engineer Consultant</h1></a>
               <p>I developed software for electronic flight bag deployed to Boeing aircraft. I deployed to Windows IoT operating system. My primary responsibility was analyzing driver code, assessing disassembled code, writing C++ and C# software for third party integration with Electronic Flight Bag service, and user acceptance testing.</p>
             </div>
@@ -232,7 +237,7 @@
           <div class="main">
             <div class="front" style="background-color: #00BF6F;"><img src="/assets/istreamlogo.png"/></div>
             <div class="back">
-              <h2>January 2014 - September 2014</h2>
+              <h2>Jan. 2014 - September 2014</h2>
               <a href="https://www.istreamfs.com/" target="_blank"><h1>iStream Financial Services - Software Development Intern</h1></a>
               <p>I started at iStream Financial Services developing Java MVC applications in Struts. I furthered my skills by optimizing PostgreSQL server queries for read performance. I also scaffolded a unit testing and integration testing framework to assist the team in the journey to full test automation. I also created business facing features focused on enabling Business Analysts to create custom reports.</p>
             </div>
@@ -243,7 +248,7 @@
           <div class="main">
             <div class="front" style="background-color: #444;"><img src="/assets/everfirelogo.png"/></div>
             <div class="back">
-              <h2>August 2013 - January 2014</h2>
+              <h2>August 2013 - Jan. 2014</h2>
               <a href="https://web.archive.org/web/20150910092557/http://everfirestudios.com/" target="_blank"><h1>EverFire Studios, Inc. - Gameplay Programmer</h1></a>
               <p>I developed backend servers using AWS EC2 instances, PostgreSQL server, and SmartFox Server to develop a multiplayer digital trading card game called "Black Plague: Bring Out Your Dead". Additionally, I created the front end library to integrate with our backend services for matchmaking, deck building, and turn based game-play. I made additional contributions to the AI used to teach the game. I also built a mobile application to enable game designers to immediately upload and test new or modified cards in a beta environment.</p>
             </div>
@@ -419,7 +424,7 @@
         <div class="main">
           <div class="front" style="background-color: rgb(32, 35, 55);"><img src="/assets/unrealenginelogo.svg"/></div>
           <div class="back">
-            <h2>January 23, 2018</h2>
+            <h2>Jan. 23, 2018</h2>
             <a href="https://www.gamedev.net/tutorials/programming/engines-and-middleware/designing-player-world-interaction-in-unreal-engine-4-r4841/" target="_blank"><h1>Designing Player World Interaction in Unreal Engine 4</h1></a>
             <p>I found that I was constantly implementing a common feature in Unreal Engine 4. There were several methods I used to accomplish this goal. I decided to share what I learned in a tutorial format. This tutorial has over 9K views.</p>
           </div>
