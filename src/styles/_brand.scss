@@ -19,16 +19,16 @@ $layout-breakpoint-max-lg: 1199px;
 $layout-breakpoint-max-xg: 3841px;
 
 $layouts: (
-  min-xs: 0px,
-  min-s: 576px,
-  min-m: 768px,
-  min-lg: 992px,
-  min-xg: 1200px,
-  max-xs: 575px,
-  max-s: 767px,
-  max-m: 991px,
-  max-lg: 1199px,
-  max-xg: 1399px,
+  min-xs: $layout-breakpoint-min-xs,
+  min-s: $layout-breakpoint-min-s,
+  min-m: $layout-breakpoint-min-m,
+  min-lg: $layout-breakpoint-min-lg,
+  min-xg: $layout-breakpoint-min-xg,
+  max-xs: $layout-breakpoint-max-xs,
+  max-s: $layout-breakpoint-max-s,
+  max-m: $layout-breakpoint-max-m,
+  max-lg: $layout-breakpoint-max-lg,
+  max-xg: $layout-breakpoint-max-xg,
 );
 
 .primary-color {
