@@ -70,3 +70,33 @@ $layouts: (
 .loud-bg {
   background-color: $loud-color;
 }
+
+.hide-xs {
+  @include media-size(xs) {
+    display: none !important;
+  }
+}
+
+.hide-s {
+  @include media-size(s) {
+    display: none !important;
+  }
+}
+
+.hide-md {
+  @include media-size(md) {
+    display: none !important;
+  }
+}
+
+.hide-lg {
+  @include media-size(lg) {
+    display: none !important;
+  }
+}
+
+.hide-xg {
+  @include media-size(xg) {
+    display: none !important;
+  }
+}
