@@ -15,10 +15,6 @@ html {
     height: 100vh;
     width: 100vw;
     
-    @include media-size(xs) {
-      margin: 0 0.25em 0 0.25em;
-    }
-    
     .hide-xs {
       @include media-size(xs) {
         display: none !important;
@@ -32,7 +28,7 @@ html {
     }
     
     .hide-md {
-      @include media-size(md) {
+      @include media-size(m) {
         display: none !important;
       }
     }
@@ -147,6 +143,38 @@ html {
                 >img {
                   max-width: 100%;
                   max-height: 100%;
+                  
+                  &.fill {
+                    margin: 0;
+                  }
+                  
+                  &#eight-hours {
+                    transform: scale(1.9);
+                    @include media-size(xs) {
+                      transform: scale(2.1);
+                    }
+                  }
+                  
+                  &#undread-fred {
+                    transform:scale(1.6);
+                    @include media-size(xs) {
+                      transform: scale(1.8);
+                    }
+                  }
+                  
+                  &#byod {
+                    transform:scale(1.8);
+                    @include media-size(xs) {
+                      transform: scale(2);
+                    }
+                  }
+                  
+                  &#invisible-battles {
+                    transform:scale(1.5);
+                    @include media-size(xs) {
+                      transform: scale(1.7);
+                    }
+                  }
                 }
               }
               
@@ -281,9 +309,9 @@ html {
         margin: 0 0 8em 0;
         
         @include media-size(xs) {
-          flex: 0 0 100%;
+          flex: initial;
           padding: 0;
-          margin: 0;
+          margin: 0 0.25em 0 0.25em;
         }
         
         h1 {
