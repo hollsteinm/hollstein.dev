@@ -3,9 +3,9 @@ version: 0.2
 phases:
   install:
     runtime-versions:
-      nodejs: 18
+      nodejs: 10
     commands:
-      - npm install -g terser imagemin-cli html-minifier sass imagemin-optipng --unsafe-perm=true --allow-root
+      - npm install -g terser@5.16.1 imagemin-cli@5.0.0 html-minifier@4.0.0 sass@1.56.1 --unsafe-perm=true --allow-root
   pre_build:
     commands:
       - mkdir build
